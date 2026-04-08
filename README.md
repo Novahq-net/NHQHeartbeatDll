@@ -76,3 +76,6 @@ Forces hosting variables (BaffleKey, PCIDKey, AppId) to static values instead of
 A SHA1 hash you generate, included in the heartbeat as a unique identifier for your server to prevent impersonation. You can generate a SHA1 hash from any string using online tools. Must be a valid SHA1 hash or it will be rejected.
 
 > **Note:** As of 2026/04/07, the custom lobby does not require or use this field, but it may be used in the future for stats tracking, server management, or other features that require a unique server identifier.
+
+## Special thanks
+I want to give a HUGE shoutout to biggy/taylorfinnell from the [OpenNova](https://github.com/opennova-net) project. Their knowledge of the game is surpassed by no-one, and their repo and projects were a huge help in making this possible.
