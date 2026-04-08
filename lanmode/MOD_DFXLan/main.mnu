@@ -1,0 +1,1795 @@
+<SCREEN>
+	<NAME>STARTUP</NAME>
+	<MUSICVAR>1</MUSICVAR>
+	<WINDOW type="window" name="MAIN">
+		<APPEARANCE type="image" state="default">Main.tga</APPEARANCE>
+		<POSITION>
+			<LEFT>0</LEFT>
+			<TOP>0</TOP>
+			<RIGHT>800</RIGHT>
+			<BOTTOM>600</BOTTOM>
+		</POSITION>
+		<TEXT_RSRC>menutxt.BIN</TEXT_RSRC>
+		<CURSOR>
+			<FILE>newarow1.tga</FILE>
+			<FLAGS>STANDARD_TRANSPARENT</FLAGS>
+		</CURSOR>
+		<WINDOW type="window" name="BUTTONS">
+			<FONT>
+				<NAME>%DEF_FONTNAME_XL%</NAME>
+				<DEFAULT_FG>%DEF_TEXT_FG%</DEFAULT_FG>
+				<MOUSEOVER_FG>%DEF_TEXT_MOUSEOVER_FG%</MOUSEOVER_FG>
+				<SELECTED_FG>%DEF_TEXT_SELECTED_FG%</SELECTED_FG>
+				<DISABLED_FG>%DEF_TEXT_DISABLED_FG%</DISABLED_FG>
+			</FONT>
+			<POSITION>
+				<LEFT>60</LEFT>
+				<TOP>150</TOP>
+			</POSITION>
+			<WINDOW type="button" name="SINGLE_PLAYER">
+				<ACTION type="screen" file="sp.mnu">SINGLE_PLAYER</ACTION>
+				<APPEARANCE state="default"></APPEARANCE>
+				<APPEARANCE state="mouseover"></APPEARANCE>
+				<APPEARANCE state="selected"></APPEARANCE>
+				<APPEARANCE state="disabled"></APPEARANCE>
+				<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+				<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+				<POSITION>
+					<TOP>50</TOP>
+					<LEFT>0</LEFT>
+					<RIGHT>0</RIGHT>
+				</POSITION>
+				<STRING type="id" justify="LEFT">MM_Singleplayer</STRING>
+			</WINDOW>
+			<WINDOW type="button" name="NW_MULTI_PLAYER">
+				<APPEARANCE state="default"></APPEARANCE>
+				<APPEARANCE state="mouseover"></APPEARANCE>
+				<APPEARANCE state="selected"></APPEARANCE>
+				<APPEARANCE state="disabled"></APPEARANCE>
+				<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+				<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+				<POSITION>
+					<TOP>100</TOP>
+					<LEFT>0</LEFT>
+					<RIGHT>0</RIGHT>
+				</POSITION>
+				<STRING type="id" justify="LEFT">MM_NWMultiplayer</STRING>
+			</WINDOW>
+			<WINDOW type="button" name="LAN_MULTI_PLAYER">
+				<ACTION type="screen" file="mp.mnu">LAN_MULTI_PLAYER</ACTION>
+				<APPEARANCE state="default"></APPEARANCE>
+				<APPEARANCE state="mouseover"></APPEARANCE>
+				<APPEARANCE state="selected"></APPEARANCE>
+				<APPEARANCE state="disabled"></APPEARANCE>
+				<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+				<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+				<POSITION>
+					<TOP>150</TOP>
+					<LEFT>0</LEFT>
+					<RIGHT>0</RIGHT>
+				</POSITION>
+				<STRING justify="LEFT">LAN</STRING>
+			</WINDOW>
+			<WINDOW type="button" name="PLAYER_INFO">
+				<ACTION type="screen" file="player.mnu">PLAYER_INFO</ACTION>
+				<APPEARANCE state="default"></APPEARANCE>
+				<APPEARANCE state="mouseover"></APPEARANCE>
+				<APPEARANCE state="selected"></APPEARANCE>
+				<APPEARANCE state="disabled"></APPEARANCE>
+				<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+				<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+				<POSITION>
+					<TOP>200</TOP>
+					<LEFT>0</LEFT>
+					<RIGHT>0</RIGHT>
+				</POSITION>
+				<STRING type="id" justify="LEFT">MM_ChangePilot</STRING>
+			</WINDOW>
+			<WINDOW type="button" name="OPTIONS">
+				<ACTION type="screen" file="options.mnu">OPTIONS</ACTION>
+				<APPEARANCE state="default"></APPEARANCE>
+				<APPEARANCE state="mouseover"></APPEARANCE>
+				<APPEARANCE state="selected"></APPEARANCE>
+				<APPEARANCE state="disabled"></APPEARANCE>
+				<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+				<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+				<POSITION>
+					<TOP>250</TOP>
+					<LEFT>0</LEFT>
+					<RIGHT>0</RIGHT>
+				</POSITION>
+				<STRING type="id" justify="LEFT">MM_Options</STRING>
+			</WINDOW>
+			<WINDOW type="button" name="DATABASE" DISABLE HIDDEN>
+				<ACTION type="screen" file="item_db.mnu">ITEM_DATABASE</ACTION>
+				<APPEARANCE state="default"></APPEARANCE>
+				<APPEARANCE state="mouseover"></APPEARANCE>
+				<APPEARANCE state="selected"></APPEARANCE>
+				<APPEARANCE state="disabled"></APPEARANCE>
+				<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+				<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+				<POSITION>
+					<TOP>300</TOP>
+					<LEFT>0</LEFT>
+					<RIGHT>0</RIGHT>
+				</POSITION>
+				<STRING type="id" justify="LEFT">MM_Database</STRING>
+			</WINDOW>
+<!--
+			<WINDOW type="button" name="UPDATE">
+				<APPEARANCE state="default"></APPEARANCE>
+				<APPEARANCE state="mouseover"></APPEARANCE>
+				<APPEARANCE state="selected"></APPEARANCE>
+				<APPEARANCE state="disabled"></APPEARANCE>
+				<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+				<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+				<POSITION>
+					<TOP>350</TOP>
+					<LEFT>0</LEFT>
+					<RIGHT>0</RIGHT>
+				</POSITION>
+				<STRING type="id" justify="LEFT">MM_UPDATE</STRING>
+			</WINDOW>
+-->
+			<WINDOW type="button" name="EXIT">
+				<APPEARANCE state="default"></APPEARANCE>
+				<APPEARANCE state="mouseover"></APPEARANCE>
+				<APPEARANCE state="selected"></APPEARANCE>
+				<APPEARANCE state="disabled"></APPEARANCE>
+				<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+				<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+				<POSITION>
+					<TOP>300</TOP>
+					<LEFT>0</LEFT>
+					<RIGHT>0</RIGHT>
+				</POSITION>
+				<STRING type="id" justify="LEFT">MM_Exit</STRING>
+			</WINDOW>
+			<WINDOW type="static" name="VERSION">
+				<FONT>
+					<NAME>%DEF_FONTNAME%</NAME>
+					<DEFAULT_FG>%DEF_TEXT_SUBTLE_FG%</DEFAULT_FG>
+					<DEFAULT_BG>000000</DEFAULT_BG>
+					<DISABLED_FG>746038</DISABLED_FG>
+					<DISABLED_BG>000000</DISABLED_BG>
+					<SELECTED_FG>e2900a</SELECTED_FG>
+					<SELECTED_BG>000000</SELECTED_BG>
+					<MOUSEOVER_FG>FF0000</MOUSEOVER_FG>
+					<MOUSEOVER_BG>000000</MOUSEOVER_BG>
+				</FONT>
+				<POSITION>
+				    <LEFT>370</LEFT>
+					<RIGHT>715</RIGHT>
+					<TOP>433</TOP>
+				</POSITION>
+				<STRING justify="RIGHT"></STRING>
+			</WINDOW>
+			<WINDOW type="static" name="VERSION">
+				<FONT>
+					<NAME>%DEF_FONTNAME%</NAME>
+					<DEFAULT_FG>%DEF_TEXT_SUBTLE_FG%</DEFAULT_FG>
+					<DEFAULT_BG>000000</DEFAULT_BG>
+					<DISABLED_FG>746038</DISABLED_FG>
+					<DISABLED_BG>000000</DISABLED_BG>
+					<SELECTED_FG>e2900a</SELECTED_FG>
+					<SELECTED_BG>000000</SELECTED_BG>
+					<MOUSEOVER_FG>FF0000</MOUSEOVER_FG>
+					<MOUSEOVER_BG>000000</MOUSEOVER_BG>
+				</FONT>
+				<POSITION>
+					<LEFT>0</LEFT>
+					<RIGHT>785</RIGHT>
+					<TOP>433</TOP>
+				</POSITION>
+				<STRING justify="LEFT">(c)2009 NovaLogic, Inc.</STRING>
+			</WINDOW>
+		</WINDOW>
+	</WINDOW>
+</SCREEN>
+
+<SCREEN>
+	<NAME>NW_LAN_HOST</NAME>
+	<MUSICVAR>8</MUSICVAR>
+	<WINDOW type="window" name="MAIN">
+		<APPEARANCE type="image" state="default">letterbox.tga</APPEARANCE>
+		<POSITION>
+			<LEFT>0</LEFT>
+			<TOP>0</TOP>
+			<RIGHT>800</RIGHT>
+			<BOTTOM>600</BOTTOM>
+		</POSITION>
+		<TEXT_RSRC>menutxt.BIN</TEXT_RSRC>
+		<CURSOR>
+			<FILE>newarow1.tga</FILE>
+			<FLAGS>STANDARD_TRANSPARENT</FLAGS>
+		</CURSOR>
+		<FONT>
+			<NAME>%DEF_FONTNAME%</NAME>
+			<DEFAULT_FG>%DEF_TEXT_FG%</DEFAULT_FG>
+			<MOUSEOVER_FG>%DEF_TEXT_MOUSEOVER_FG%</MOUSEOVER_FG>
+			<SELECTED_FG>%DEF_TEXT_SELECTED_FG%</SELECTED_FG>
+			<DISABLED_FG>%DEF_TEXT_DISABLED_FG%</DISABLED_FG>
+		</FONT>
+
+		<WINDOW type="window" name="ALIGNMENT_WRAPPER">
+			<POSITION>
+				<TOP>75</TOP>
+				<LEFT>0</LEFT>
+			</POSITION>
+	<!-- bink panels begin-->
+			<WINDOW type="window" name="LOGO_SPLASH_HDR">
+				<APPEARANCE type="custom" state="default"></APPEARANCE>
+				<POSITION>
+					<TOP>-75</TOP>
+					<BOTTOM>0</BOTTOM>
+					<LEFT>0</LEFT>
+					<RIGHT>801</RIGHT>
+				</POSITION>
+			</WINDOW>
+			<WINDOW type="window" name="LOGO_SPLASH_FTR">
+				<APPEARANCE type="custom" state="default"></APPEARANCE>
+				<POSITION>
+					<TOP>450</TOP>
+					<BOTTOM>525</BOTTOM>
+					<LEFT>0</LEFT>
+					<RIGHT>801</RIGHT>
+				</POSITION>
+			</WINDOW>
+	<!-- bink panels end-->
+
+			<WINDOW type="window" name="WRAPPER">
+				<POSITION>
+					<LEFT>0</LEFT>
+					<TOP>-75</TOP>
+				</POSITION>
+				<WINDOW type="window">
+					<APPEARANCE type="outline" state="default">%TRIM_COLOR%</APPEARANCE>
+					<POSITION>
+						<TOP>79</TOP>
+						<BOTTOM>79</BOTTOM>
+						<LEFT>0</LEFT>
+						<RIGHT>801</RIGHT>
+					</POSITION>
+				</WINDOW>
+				<WINDOW type="window" name="HOST_TABS_WRAPPER">
+					<FONT>
+						<NAME>%DEF_FONTNAME_BODY%</NAME>
+						<DEFAULT_FG>%DEF_TEXT_FG%</DEFAULT_FG>
+						<MOUSEOVER_FG>%DEF_TEXT_MOUSEOVER_FG%</MOUSEOVER_FG>
+						<SELECTED_FG>%DEF_TEXT_SELECTED_FG%</SELECTED_FG>
+						<DISABLED_FG>%DEF_TEXT_DISABLED_FG%</DISABLED_FG>
+					</FONT>
+					<WINDOW type="radio" name="RADIO_TAB_HOST_GENERAL">
+						<GROUP>10</GROUP>
+						<ACTION type="window" state="SHOW">TAB_HOST_GENERAL</ACTION>
+						<ACTION type="window" state="HIDE">TAB_HOST_GAME</ACTION>
+						<ACTION type="window" state="HIDE">TAB_HOST_WEAPON</ACTION>
+						<APPEARANCE type="image" state="default"   map_state="0" height="25">tab_mid.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="25">tab_mid.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected"  map_state="2" height="25">tab_mid.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled"  map_state="3" height="25">tab_mid.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>10</LEFT>
+							<TOP>55</TOP>
+							<BOTTOM>80</BOTTOM>
+						</POSITION>
+						<STRING type="ID" justify="CENTER" vjustify="CENTER">TAB_GENERAL</STRING>
+						<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="radio" name="RADIO_TAB_HOST_GAME">
+						<GROUP>10</GROUP>
+						<ACTION type="window" state="HIDE">TAB_HOST_GENERAL</ACTION>
+						<ACTION type="window" state="SHOW">TAB_HOST_GAME</ACTION>
+						<ACTION type="window" state="HIDE">TAB_HOST_WEAPON</ACTION>
+						<APPEARANCE type="image" state="default"   map_state="0" height="25">tab_mid.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="25">tab_mid.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected"  map_state="2" height="25">tab_mid.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled"  map_state="3" height="25">tab_mid.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>210</LEFT>
+							<TOP>55</TOP>
+							<BOTTOM>80</BOTTOM>
+						</POSITION>
+						<STRING type="ID" justify="CENTER" vjustify="CENTER">TAB_GAME</STRING>
+						<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="radio" name="RADIO_TAB_HOST_WEAPON">
+						<GROUP>10</GROUP>
+						<ACTION type="window" state="HIDE">TAB_HOST_GENERAL</ACTION>
+						<ACTION type="window" state="HIDE">TAB_HOST_GAME</ACTION>
+						<ACTION type="window" state="SHOW">TAB_HOST_WEAPON</ACTION>
+						<APPEARANCE type="image" state="default"   map_state="0" height="25">tab_mid.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="25">tab_mid.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected"  map_state="2" height="25">tab_mid.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled"  map_state="3" height="25">tab_mid.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>410</LEFT>
+							<TOP>55</TOP>
+							<BOTTOM>80</BOTTOM>
+						</POSITION>
+						<STRING type="ID" justify="CENTER" vjustify="CENTER">TAB_WEAPON</STRING>
+						<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+					</WINDOW>
+				</WINDOW>
+				<WINDOW type="window">
+
+				<WINDOW type="window" name="TAB_HOST_GENERAL">
+					<POSITION>
+						<LEFT>40</LEFT>
+						<TOP>110</TOP>
+					</POSITION>
+					<WINDOW type="static" name="STATIC_GAME_NAME">
+						<POSITION>
+							<LEFT>0</LEFT>
+							<RIGHT>100</RIGHT>
+							<TOP>0</TOP>
+							<BOTTOM>20</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HG_GAMENAME</STRING>
+					</WINDOW>
+					<WINDOW type="edit" name="GAME_NAME" MAXCHAR="31">
+						<APPEARANCE type="image" state="default" map_state="0" height="20">btn1d.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="20">btn1d.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="20">btn1d.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="20">btn1d.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>102</LEFT>
+							<RIGHT>302</RIGHT>
+							<TOP>0</TOP>
+							<BOTTOM>20</BOTTOM>
+						</POSITION>
+						<STRING type="id" edge="5" justify="LEFT" vjustify="CENTER">HG_GAMENAME</STRING>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_PASSWORD">
+						<POSITION>
+							<LEFT>0</LEFT>
+							<RIGHT>100</RIGHT>
+							<TOP>30</TOP>
+							<BOTTOM>50</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HG_PASSWORD</STRING>
+					</WINDOW>
+					<WINDOW type="edit" name="SERVER_PASSWORD" MAXCHAR="16">
+						<APPEARANCE type="image" state="default" map_state="0" height="20">btn1d.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="20">btn1d.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="20">btn1d.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="20">btn1d.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>102</LEFT>
+							<RIGHT>302</RIGHT>
+							<TOP>30</TOP>
+							<BOTTOM>50</BOTTOM>
+						</POSITION>
+						<STRING edge="5" justify="LEFT" vjustify="CENTER"></STRING>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_SERVER_MESSAGE">
+						<POSITION>
+							<LEFT>0</LEFT>
+							<RIGHT>100</RIGHT>
+							<TOP>60</TOP>
+							<BOTTOM>80</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HG_MESSAGE</STRING>
+					</WINDOW>
+					<WINDOW type="edit" name="SERVER_MESSAGE" MAXCHAR="128">
+						<APPEARANCE type="image" state="default" map_state="0" height="20">btn1d.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="20">btn1d.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="20">btn1d.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="20">btn1d.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>102</LEFT>
+							<RIGHT>302</RIGHT>
+							<TOP>60</TOP>
+							<BOTTOM>80</BOTTOM>
+						</POSITION>
+						<STRING edge="5" justify="LEFT" vjustify="CENTER" type="id">HG_WELCOME</STRING>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_SERVERTYPE">
+						<POSITION>
+							<LEFT>350</LEFT>
+							<RIGHT>500</RIGHT>
+							<TOP>0</TOP>
+							<BOTTOM>24</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HG_SVRTYPE</STRING>
+					</WINDOW>
+					<WINDOW type="spinlist" name="SERVERTYPE">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn7.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn7.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn7.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn7.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>520</LEFT>
+							<RIGHT>670</RIGHT>
+							<TOP>0</TOP>
+							<BOTTOM>24</BOTTOM>
+						</POSITION>
+						<ITEMS justify="CENTER" vjustify="CENTER">
+							<ITEM type="ID" value="0">HG_SERVEPLAY</ITEM>
+							<ITEM type="ID" value="1">HG_SERVEONLY</ITEM>
+						</ITEMS>
+						<SPINUP>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Rt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>151</LEFT>
+								<RIGHT>167</RIGHT>
+								<BOTTOM>24</BOTTOM>
+							</POSITION>
+						</SPINUP>
+						<SPINDOWN>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Lt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>-18</LEFT>
+								<RIGHT>-2</RIGHT>
+								<BOTTOM>24</BOTTOM>
+							</POSITION>
+						</SPINDOWN>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_GAME_LOCATION">
+						<POSITION>
+							<LEFT>350</LEFT>
+							<RIGHT>450</RIGHT>
+							<TOP>30</TOP>
+							<BOTTOM>50</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HG_LOCATION</STRING>
+					</WINDOW>
+					<WINDOW type="spinlist" name="GAME_LOCATION">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn7.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn7.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn7.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn7.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>520</LEFT>
+							<RIGHT>670</RIGHT>
+							<TOP>30</TOP>
+							<BOTTOM>54</BOTTOM>
+						</POSITION>
+						<ITEMS justify="CENTER" vjustify="CENTER">
+							<ITEM value="32">US</ITEM>
+							<ITEM value="1">AQ</ITEM>
+							<ITEM value="2">AU</ITEM>
+							<ITEM value="3">BE</ITEM>
+							<ITEM value="4">BR</ITEM>
+							<ITEM value="5">CA</ITEM>
+							<ITEM value="6">CH</ITEM>
+							<ITEM value="7">CN</ITEM>
+							<ITEM value="9">DK</ITEM>
+							<ITEM value="8">DE</ITEM>
+							<ITEM value="10">ES</ITEM>
+							<ITEM value="11">EU</ITEM>
+							<ITEM value="12">FI</ITEM>
+							<ITEM value="13">FR</ITEM>
+							<ITEM value="14">GB</ITEM>
+							<ITEM value="15">HK</ITEM>
+							<ITEM value="16">HU</ITEM>
+							<ITEM value="17">IT</ITEM>
+							<ITEM value="18">JP</ITEM>
+							<ITEM value="19">KR</ITEM>
+							<ITEM value="20">LU</ITEM>
+							<ITEM value="21">MX</ITEM>
+							<ITEM value="22">NL</ITEM>
+							<ITEM value="23">NO</ITEM>
+							<ITEM value="24">NZ</ITEM>
+							<ITEM value="25">PL</ITEM>
+							<ITEM value="26">PT</ITEM>
+							<ITEM value="27">RU</ITEM>
+							<ITEM value="28">SE</ITEM>
+							<ITEM value="29">SG</ITEM>
+							<ITEM value="30">TW</ITEM>
+							<ITEM value="31">UK</ITEM>
+						</ITEMS>
+						<SPINUP>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Rt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>151</LEFT>
+								<RIGHT>167</RIGHT>
+								<BOTTOM>24</BOTTOM>
+							</POSITION>
+						</SPINUP>
+						<SPINDOWN>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Lt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>-18</LEFT>
+								<RIGHT>-2</RIGHT>
+								<BOTTOM>24</BOTTOM>
+							</POSITION>
+						</SPINDOWN>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_SERVER_LANONLY">
+						<POSITION>
+							<LEFT>-2500</LEFT>
+							<RIGHT>-2400</RIGHT>
+							<TOP>-2500</TOP>
+							<BOTTOM>-2400</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">SERVER_LANONLY</STRING>
+					</WINDOW>
+					<WINDOW type="spinlist" name="SERVER_LANONLY">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn7.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn7.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn7.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn7.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>-2500</LEFT>
+							<RIGHT>-2400</RIGHT>
+							<TOP>-2500</TOP>
+							<BOTTOM>-2400</BOTTOM>
+						</POSITION>
+						<ITEMS justify="CENTER" vjustify="CENTER">
+							<ITEM type="ID" value="0">TT_NO</ITEM>
+							<ITEM type="ID" value="1">TT_YES</ITEM>
+						</ITEMS>
+						<SPINUP>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Rt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>152</LEFT>
+								<RIGHT>168</RIGHT>
+								<BOTTOM>24</BOTTOM>
+							</POSITION>
+						</SPINUP>
+						<SPINDOWN>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Lt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>-18</LEFT>
+								<RIGHT>-2</RIGHT>
+								<BOTTOM>24</BOTTOM>
+							</POSITION>
+						</SPINDOWN>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_AVAILABLE">
+						<POSITION>
+							<LEFT>0</LEFT>
+							<RIGHT>252</RIGHT>
+							<TOP>100</TOP>
+							<BOTTOM>124</BOTTOM>
+						</POSITION>
+						<STRING justify="CENTER" vjustify="CENTER" type="id">HGN_AVAILABLE</STRING>
+					</WINDOW>
+					<WINDOW type="spinlist" name="GAME_TYPE">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn3.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn3.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn3.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn3.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>20</LEFT>
+							<RIGHT>235</RIGHT>
+							<TOP>125</TOP>
+							<BOTTOM>149</BOTTOM>
+						</POSITION>
+						<ITEMS justify="CENTER" vjustify="CENTER">
+							<ITEM type="ID" value="255">HG_ALLTYPES</ITEM>
+							<ITEM type="ID" value="254">HG_EXTREME</ITEM>
+							<ITEM type="ID" value="1">HG_TDM</ITEM>
+							<ITEM type="ID" value="2">HG_COOP</ITEM>
+							<ITEM type="ID" value="3">HG_TKOTH</ITEM>
+							<ITEM type="ID" value="4">HG_KOTH</ITEM>
+							<ITEM type="ID" value="5">HG_SAD</ITEM>
+							<ITEM type="ID" value="6">HG_AAD</ITEM>
+							<ITEM type="ID" value="7">HG_CTF</ITEM>
+							<ITEM type="ID" value="8">HG_FB</ITEM>
+							<ITEM type="ID" value="9">HG_AAS</ITEM>
+							<ITEM type="ID" value="10">HG_CAC</ITEM>
+							<ITEM type="ID" value="11">HG_DM</ITEM>
+						</ITEMS>
+						<SPINUP>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Rt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>217</LEFT>
+								<RIGHT>233</RIGHT>
+								<BOTTOM>24</BOTTOM>
+							</POSITION>
+						</SPINUP>
+						<SPINDOWN>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Lt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>-18</LEFT>
+								<RIGHT>-2</RIGHT>
+								<BOTTOM>24</BOTTOM>
+							</POSITION>
+						</SPINDOWN>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="window" name="MISSION_LIST_BACKGROUND">
+						<APPEARANCE type=image state="default">box_hst.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>0</LEFT>
+							<RIGHT>252</RIGHT>
+							<TOP>157</TOP>
+							<BOTTOM>343</BOTTOM>
+						</POSITION>
+					</WINDOW>
+					<WINDOW type="list" name="MISSION_LIST">
+						<APPEARANCE state="default"></APPEARANCE>
+						<POSITION>
+							<LEFT>2</LEFT>
+							<RIGHT>250</RIGHT>
+							<TOP>159</TOP>
+							<BOTTOM>341</BOTTOM>
+						</POSITION>
+						<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+						<ITEMS justify="LEFT" vjustify="CENTER" MULTISELECT>
+							<APPEARANCE type="color" state="selected">%ITEM_SELECTED_BG%</APPEARANCE>
+						</ITEMS>
+						<MIN_ITEM_HEIGHT>20</MIN_ITEM_HEIGHT>
+						<SCROLLBAR>
+							<APPEARANCE type="image" state="default">m_scrolV.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover">m_scrolV.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected">m_scrolV.tga</APPEARANCE>
+							<SHUTTLE type="image" state="default">shuttlev.tga</SHUTTLE>
+							<SHUTTLE type="image" state="mouseover">shuttlev.tga</SHUTTLE>
+							<SHUTTLE type="image" state="selected">shuttlev.tga</SHUTTLE>
+							<SCROLLUP type="image" state="default" map_state="0" height="24">up2arrw.tga</APPEARANCE>
+							<SCROLLUP type="image" state="mouseover" map_state="1" height="24">up2arrw.tga</APPEARANCE>
+							<SCROLLUP type="image" state="selected" map_state="2" height="24">up2arrw.tga</APPEARANCE>
+							<SCROLLUP type="image" state="disabled" map_state="3 height="24">up2arrw.tga</APPEARANCE>
+							<SCROLLDOWN type="image" state="default" map_state="0" height="24">dn2arrw.tga</APPEARANCE>
+							<SCROLLDOWN type="image" state="mouseover" map_state="1" height="24">dn2arrw.tga</APPEARANCE>
+							<SCROLLDOWN type="image" state="selected" map_state="2" height="24">dn2arrw.tga</APPEARANCE>
+							<SCROLLDOWN type="image" state="disabled" map_state="3" height="24">dn2arrw.tga</APPEARANCE>
+							<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+							<POSITION>
+								<LEFT>255</LEFT>
+								<TOP>-3</TOP>
+								<RIGHT>275</RIGHT>
+								<BOTTOM>184</BOTTOM>
+							</POSITION>
+						</SCROLLBAR>
+					</WINDOW>
+					<WINDOW type="button" name="ADD_MISSIONS">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">add.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">add.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">add.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">add.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>300</LEFT>
+							<RIGHT>328</RIGHT>
+							<TOP>227</TOP>
+							<BOTTOM>255</BOTTOM>
+						</POSITION>
+						<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="button" name="REMOVE_MISSIONS">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">subtract.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">subtract.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">subtract.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">subtract.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>300</LEFT>
+							<RIGHT>328</RIGHT>
+							<TOP>257</TOP>
+							<BOTTOM>285</BOTTOM>
+						</POSITION>
+						<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_SELECTED">
+						<POSITION>
+							<LEFT>350</LEFT>
+							<RIGHT>720</RIGHT>
+							<TOP>105</TOP>
+							<BOTTOM>129</BOTTOM>
+						</POSITION>
+						<STRING justify="CENTER" vjustify="CENTER" type="id">HGN_SELECTED</STRING>
+					</WINDOW>
+					<WINDOW type="window" name="SELECTED_MISSIONS_HEADER_BKGND">
+						<POSITION>
+							<LEFT>350</LEFT>
+							<RIGHT>700</RIGHT>
+							<TOP>140</TOP>
+							<BOTTOM>158</BOTTOM>
+						</POSITION>
+						<APPEARANCE type="color" state="default">%TRIM_COLOR%</APPEARANCE>
+					</WINDOW>
+					<WINDOW type="window" name="SELECTED_MISSONS_BACKGROUND">
+						<APPEARANCE type=image state="default">box_hst.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>350</LEFT>
+							<RIGHT>700</RIGHT>
+							<TOP>158</TOP>
+							<BOTTOM>343</BOTTOM>
+						</POSITION>
+					</WINDOW>
+					<WINDOW type="table" name="SELECTED_MISSIONS">
+						<APPEARANCE state="default"></APPEARANCE>
+						<POSITION>
+							<LEFT>353</LEFT>
+							<RIGHT>700</RIGHT>
+							<TOP>140</TOP>
+							<BOTTOM>343</BOTTOM>
+						</POSITION>
+						<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+						<COLUMN count="2" spacing="0">
+							<HEADER justify="CENTER" vjustify="CENTER" column="0" sort="NONE" width="244" type="id">Mission</HEADER>
+							<HEADER justify="CENTER" vjustify="CENTER" column="1" sort="NONE" width="100" type="id">Type</HEADER>
+
+							<BODY justify="LEFT" vjustify="CENTER" column="0"></BODY>
+							<BODY justify="CENTER" vjustify="CENTER" column="1"></BODY>
+						</COLUMN>
+						<ITEMS MULTISELECT>
+							<APPEARANCE type="color" state="selected">%ITEM_SELECTED_BG%</APPEARANCE>
+						</ITEMS>
+						<MIN_ITEM_HEIGHT>20</MIN_ITEM_HEIGHT>
+						<FIXED_HEADER_HEIGHT>20</FIXED_HEADER_HEIGHT>
+						<SCROLLBAR>
+							<APPEARANCE type="image" state="default">m_scrolV.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover">m_scrolV.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected">m_scrolV.tga</APPEARANCE>
+							<SHUTTLE type="image" state="default">shuttlev.tga</SHUTTLE>
+							<SHUTTLE type="image" state="mouseover">shuttlev.tga</SHUTTLE>
+							<SHUTTLE type="image" state="selected">shuttlev.tga</SHUTTLE>
+							<SCROLLUP type="image" state="default" map_state="0" height="24">up2arrw.tga</APPEARANCE>
+							<SCROLLUP type="image" state="mouseover" map_state="1" height="24">up2arrw.tga</APPEARANCE>
+							<SCROLLUP type="image" state="selected" map_state="2" height="24">up2arrw.tga</APPEARANCE>
+							<SCROLLUP type="image" state="disabled" map_state="3 height="24">up2arrw.tga</APPEARANCE>
+							<SCROLLDOWN type="image" state="default" map_state="0" height="24">dn2arrw.tga</APPEARANCE>
+							<SCROLLDOWN type="image" state="mouseover" map_state="1" height="24">dn2arrw.tga</APPEARANCE>
+							<SCROLLDOWN type="image" state="selected" map_state="2" height="24">dn2arrw.tga</APPEARANCE>
+							<SCROLLDOWN type="image" state="disabled" map_state="3" height="24">dn2arrw.tga</APPEARANCE>
+							<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+							<POSITION>
+								<LEFT>357</LEFT>
+								<TOP>20</TOP>
+								<RIGHT>377</RIGHT>
+								<BOTTOM>200</BOTTOM>
+							</POSITION>
+						</SCROLLBAR>
+					</WINDOW>
+<!--	-->
+					<WINDOW type="button" name="START_GAME">
+						<HOTKEY VIRTUAL>VK_RETURN</HOTKEY>
+						<ACTION type="window" state="hide">LOGOUT</ACTION>
+						<ACTION type="window" state="show">BACK</ACTION>
+						<APPEARANCE type="image" state="default" map_state="0" height="36">btn8.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="36">btn8.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="36">btn8.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="36">btn8.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>350</LEFT>
+							<RIGHT>720</RIGHT>
+							<TOP>353</TOP>
+							<BOTTOM>389</BOTTOM>
+						</POSITION>
+						<STRING justify="CENTER" vjustify="CENTER" type="id">START_HOSTING</STRING>
+						<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_JOIN">menu.lwf</SOUND>
+					</WINDOW>
+				</WINDOW>
+
+				<WINDOW type="window" name="TAB_HOST_GAME" HIDDEN>
+					<POSITION>
+						<LEFT>60</LEFT>
+						<TOP>110</TOP>
+					</POSITION>
+					<WINDOW type="static" name="STATIC_CONNECTIONSPEED">
+						<POSITION>
+							<LEFT>0</LEFT>
+							<RIGHT>100</RIGHT>
+							<TOP>0</TOP>
+							<BOTTOM>25</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HGN_CONNECT_INTERNET</STRING>
+					</WINDOW>
+					<WINDOW type="spinlist" name="CONNECTIONSPEED">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>140</LEFT>
+							<RIGHT>290</RIGHT>
+							<TOP>0</TOP>
+							<BOTTOM>24</BOTTOM>
+						</POSITION>
+						<ITEMS justify="CENTER" vjustify="CENTER">
+							<ITEM type="ID" value="0">ISPTYPE_MODEM</ITEM>
+							<ITEM type="ID" value="1">ISPTYPE_60K</ITEM>
+							<ITEM type="ID" value="2">ISPTYPE_64K</ITEM>
+							<ITEM type="ID" value="3">ISPTYPE_80K</ITEM>
+							<ITEM type="ID" value="4">ISPTYPE_100K</ITEM>
+							<ITEM type="ID" value="5">ISPTYPE_128K</ITEM>
+							<ITEM type="ID" value="6">ISPTYPE_144K</ITEM>
+							<ITEM type="ID" value="7">ISPTYPE_192K</ITEM>
+							<ITEM type="ID" value="8">ISPTYPE_256K</ITEM>
+							<ITEM type="ID" value="9">ISPTYPE_350K</ITEM>
+							<ITEM type="ID" value="10">ISPTYPE_384K</ITEM>
+							<ITEM type="ID" value="11">ISPTYPE_512K</ITEM>
+							<ITEM type="ID" value="12">ISPTYPE_640K</ITEM>
+							<ITEM type="ID" value="13">ISPTYPE_768K</ITEM>
+							<ITEM type="ID" value="14">ISPTYPE_1000K</ITEM>
+							<ITEM type="ID" value="15">ISPTYPE_1100K</ITEM>
+							<ITEM type="ID" value="16">ISPTYPE_1250K</ITEM>
+							<ITEM type="ID" value="17">ISPTYPE_1544K</ITEM>
+							<ITEM type="ID" value="18">ISPTYPE_44736K</ITEM>
+						</ITEMS>
+						<SPINUP>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Rt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>151</LEFT>
+								<RIGHT>167</RIGHT>
+								<BOTTOM>24</BOTTOM>
+							</POSITION>
+						</SPINUP>
+						<SPINDOWN>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Lt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>-17</LEFT>
+								<RIGHT>-1</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINDOWN>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_MAXPLAYERS_RECOMMENDATION">
+						<POSITION>
+							<LEFT>375</LEFT>
+							<RIGHT>700</RIGHT>
+							<TOP>0</TOP>
+							<BOTTOM>25</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER"></STRING>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_MAX_PLAYERS">
+						<POSITION>
+							<LEFT>0</LEFT>
+							<RIGHT>100</RIGHT>
+							<TOP>27</TOP>
+							<BOTTOM>52</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HOT_MAXPL</STRING>
+					</WINDOW>
+					<WINDOW type="edit" name="MAX_PLAYERS" NUMBER MAXVAL=32 MINVAL=1>
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>140</LEFT>
+							<RIGHT>240</RIGHT>
+							<TOP>27</TOP>
+							<BOTTOM>52</BOTTOM>
+						</POSITION>
+						<STRING edge="5" justify="CENTER" vjustify="CENTER">16</STRING>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_REPLAY">
+						<POSITION>
+							<LEFT>0</LEFT>
+							<RIGHT>100</RIGHT>
+							<TOP>54</TOP>
+							<BOTTOM>79</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HOT_REPLAY</STRING>
+					</WINDOW>
+					<WINDOW type="spinlist" name="REPLAY">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>140</LEFT>
+							<RIGHT>240</RIGHT>
+							<TOP>54</TOP>
+							<BOTTOM>79</BOTTOM>
+						</POSITION>
+						<ITEMS justify="CENTER" vjustify="CENTER">
+							<ITEM type="ID" value="0">HG_REPLAY_1</ITEM>
+							<ITEM type="ID" value="1">HG_REPLAY_2</ITEM>
+						</ITEMS>
+						<SPINUP>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Rt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>101</LEFT>
+								<RIGHT>117</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINUP>
+						<SPINDOWN>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Lt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>-17</LEFT>
+								<RIGHT>-1</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINDOWN>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_DELAY">
+						<POSITION>
+							<LEFT>0</LEFT>
+							<RIGHT>100</RIGHT>
+							<TOP>81</TOP>
+							<BOTTOM>106</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HOT_DELAY</STRING>
+					</WINDOW>
+					<WINDOW type="edit" name="DELAY" NUMBER MAXVAL=600 MINVAL=0>
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>140</LEFT>
+							<RIGHT>240</RIGHT>
+							<TOP>81</TOP>
+							<BOTTOM>106</BOTTOM>
+						</POSITION>
+						<STRING edge="5" justify="CENTER" vjustify="CENTER" type="id">HOT_DELAY</STRING>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_DELAY_SECONDS">
+						<POSITION>
+							<LEFT>250</LEFT>
+							<RIGHT>350</RIGHT>
+							<TOP>81</TOP>
+							<BOTTOM>106</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">SECONDS</STRING>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_RESPAWN">
+						<POSITION>
+							<LEFT>0</LEFT>
+							<RIGHT>100</RIGHT>
+							<TOP>108</TOP>
+							<BOTTOM>133</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HOT_RESPAWN</STRING>
+					</WINDOW>
+					<WINDOW type="edit" name="RESPAWN" NUMBER MAXVAL=600 MINVAL=0>
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>140</LEFT>
+							<RIGHT>240</RIGHT>
+							<TOP>108</TOP>
+							<BOTTOM>133</BOTTOM>
+						</POSITION>
+						<STRING edge="5" justify="CENTER" vjustify="CENTER"></STRING>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_RESPAWN_SECONDS">
+						<POSITION>
+							<LEFT>250</LEFT>
+							<RIGHT>350</RIGHT>
+							<TOP>108</TOP>
+							<BOTTOM>133</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">SECONDS</STRING>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_TIME">
+						<POSITION>
+							<LEFT>0</LEFT>
+							<RIGHT>100</RIGHT>
+							<TOP>135</TOP>
+							<BOTTOM>160</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HOT_TIME</STRING>
+					</WINDOW>
+					<WINDOW type="edit" name="TIME" NUMBER MAXVAL=99999 MINVAL=1>
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>140</LEFT>
+							<RIGHT>240</RIGHT>
+							<TOP>135</TOP>
+							<BOTTOM>160</BOTTOM>
+						</POSITION>
+						<STRING edge="5" justify="CENTER" vjustify="CENTER"></STRING>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_TIME_MINUTES">
+						<POSITION>
+							<LEFT>250</LEFT>
+							<RIGHT>350</RIGHT>
+							<TOP>135</TOP>
+							<BOTTOM>160</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">MINUTES</STRING>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_TAKEOVER_TIME">
+						<POSITION>
+							<LEFT>0</LEFT>
+							<RIGHT>100</RIGHT>
+							<TOP>162</TOP>
+							<BOTTOM>187</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HOT_TAKEOVER_TIME</STRING>
+					</WINDOW>
+					<WINDOW type="edit" name="TAKEOVER_TIME" NUMBER MAXVAL=999 MINVAL=1>
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>140</LEFT>
+							<RIGHT>240</RIGHT>
+							<TOP>162</TOP>
+							<BOTTOM>187</BOTTOM>
+						</POSITION>
+						<STRING edge="5" justify="CENTER" vjustify="CENTER">16</STRING>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_TAKEOVER_TIME_SECONDS">
+						<POSITION>
+							<LEFT>250</LEFT>
+							<RIGHT>350</RIGHT>
+							<TOP>162</TOP>
+							<BOTTOM>187</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">SECONDS</STRING>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_SCORE_LIMIT">
+						<POSITION>
+							<LEFT>0</LEFT>
+							<RIGHT>100</RIGHT>
+							<TOP>189</TOP>
+							<BOTTOM>214</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">SCORELIMIT</STRING>
+					</WINDOW>
+					<WINDOW type="edit" name="MAX_SCORE" NUMBER MAXVAL=999 MINVAL=1>
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>140</LEFT>
+							<RIGHT>240</RIGHT>
+							<TOP>189</TOP>
+							<BOTTOM>214</BOTTOM>
+						</POSITION>
+						<STRING edge="5" justify="CENTER" vjustify="CENTER">20</STRING>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_KOTH_LIMIT">
+						<POSITION>
+							<LEFT>0</LEFT>
+							<RIGHT>100</RIGHT>
+							<TOP>216</TOP>
+							<BOTTOM>241</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">KOTHLIMIT</STRING>
+					</WINDOW>
+					<WINDOW type="edit" name="MAX_KOTH" NUMBER MAXVAL=999 MINVAL=1>
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>140</LEFT>
+							<RIGHT>240</RIGHT>
+							<TOP>216</TOP>
+							<BOTTOM>241</BOTTOM>
+						</POSITION>
+						<STRING edge="5" justify="CENTER" vjustify="CENTER">10</STRING>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_KOTH_MINUTES">
+						<POSITION>
+							<LEFT>250</LEFT>
+							<RIGHT>350</RIGHT>
+							<TOP>216</TOP>
+							<BOTTOM>241</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">MINUTES</STRING>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_KILL_LIMIT">
+						<POSITION>
+							<LEFT>0</LEFT>
+							<RIGHT>100</RIGHT>
+							<TOP>243</TOP>
+							<BOTTOM>268</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HO_SCORE_DM</STRING>
+					</WINDOW>
+					<WINDOW type="edit" name="KILL_LIMIT" NUMBER MAXVAL=999 MINVAL=1>
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>140</LEFT>
+							<RIGHT>240</RIGHT>
+							<TOP>243</TOP>
+							<BOTTOM>268</BOTTOM>
+						</POSITION>
+						<STRING edge="5" justify="CENTER" vjustify="CENTER">20</STRING>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+					</WINDOW>
+
+
+
+
+					<WINDOW type="static" name="STATIC_FF_KILLS">
+						<POSITION>
+							<LEFT>350</LEFT>
+							<RIGHT>450</RIGHT>
+							<TOP>27</TOP>
+							<BOTTOM>52</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HGT_FRIENDLY</STRING>
+					</WINDOW>
+					<WINDOW type="spinlist" name="TEAM_FF">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>480</LEFT>
+							<RIGHT>580</RIGHT>
+							<TOP>27</TOP>
+							<BOTTOM>52</BOTTOM>
+						</POSITION>
+						<ITEMS justify="CENTER" vjustify="CENTER">
+							<ITEM type="ID" value="0">TT_OFF</ITEM>
+							<ITEM type="ID" value="1">TT_ON</ITEM>
+						</ITEMS>
+						<SPINUP>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Rt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>101</LEFT>
+								<RIGHT>117</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINUP>
+						<SPINDOWN>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Lt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>-17</LEFT>
+								<RIGHT>-1</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINDOWN>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_MAX_FF_KILLS">
+						<POSITION>
+							<LEFT>350</LEFT>
+							<RIGHT>450</RIGHT>
+							<TOP>54</TOP>
+							<BOTTOM>79</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HGT_MAX_FF_KILLS</STRING>
+					</WINDOW>
+					<WINDOW type="edit" name="MAX_FF_KILLS" NUMBER MAXVAL=999 MINVAL=1>
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>480</LEFT>
+							<RIGHT>580</RIGHT>
+							<TOP>54</TOP>
+							<BOTTOM>79</BOTTOM>
+						</POSITION>
+						<STRING edge="5" justify="CENTER" vjustify="CENTER></STRING>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_FRIENDLY_TAG">
+						<POSITION>
+							<LEFT>350</LEFT>
+							<RIGHT>450</RIGHT>
+							<TOP>81</TOP>
+							<BOTTOM>106</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HGT_FRIENDLYTAG</STRING>
+					</WINDOW>
+					<WINDOW type="spinlist" name="FRIENDLY_TAG">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>480</LEFT>
+							<RIGHT>580</RIGHT>
+							<TOP>81</TOP>
+							<BOTTOM>106</BOTTOM>
+						</POSITION>
+						<ITEMS justify="CENTER" vjustify="CENTER">
+							<ITEM type="ID" value="0">TT_OFF</ITEM>
+							<ITEM type="ID" value="1">TT_ON</ITEM>
+						</ITEMS>
+						<SPINUP>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Rt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>101</LEFT>
+								<RIGHT>117</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINUP>
+						<SPINDOWN>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Lt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>-17</LEFT>
+								<RIGHT>-1</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINDOWN>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_FF_WARNING">
+						<POSITION>
+							<LEFT>350</LEFT>
+							<RIGHT>450</RIGHT>
+							<TOP>108</TOP>
+							<BOTTOM>133</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HGT_WARNING</STRING>
+					</WINDOW>
+					<WINDOW type="spinlist" name="FF_WARNING">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>480</LEFT>
+							<RIGHT>580</RIGHT>
+							<TOP>108</TOP>
+							<BOTTOM>133</BOTTOM>
+						</POSITION>
+						<ITEMS justify="CENTER" vjustify="CENTER">
+							<ITEM type="ID" value="0">TT_OFF</ITEM>
+							<ITEM type="ID" value="1">TT_ON</ITEM>
+						</ITEMS>
+						<SPINUP>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Rt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>101</LEFT>
+								<RIGHT>117</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINUP>
+						<SPINDOWN>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Lt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>-17</LEFT>
+								<RIGHT>-1</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINDOWN>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_FF_CLAYMORE_PREF">
+						<POSITION>
+							<LEFT>350</LEFT>
+							<RIGHT>450</RIGHT>
+							<TOP>135</TOP>
+							<BOTTOM>160</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HGT_CLAY_FF</STRING>
+					</WINDOW>
+					<WINDOW type="spinlist" name="CLAYMORE_PREF">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>480</LEFT>
+							<RIGHT>580</RIGHT>
+							<TOP>135</TOP>
+							<BOTTOM>160</BOTTOM>
+						</POSITION>
+						<ITEMS justify="CENTER" vjustify="CENTER">
+							<ITEM type="ID" value="0">HGT_ENEMIES</ITEM>
+							<ITEM type="ID" value="1">HGT_ANYONE</ITEM>
+						</ITEMS>
+						<SPINUP>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Rt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>101</LEFT>
+								<RIGHT>117</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINUP>
+						<SPINDOWN>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Lt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>-17</LEFT>
+								<RIGHT>-1</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINDOWN>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_TRACERS">
+						<POSITION>
+							<LEFT>350</LEFT>
+							<RIGHT>450</RIGHT>
+							<TOP>162</TOP>
+							<BOTTOM>187</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HGW_TRACERS</STRING>
+					</WINDOW>
+					<WINDOW type="spinlist" name="TRACERS">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>480</LEFT>
+							<RIGHT>580</RIGHT>
+							<TOP>162</TOP>
+							<BOTTOM>187</BOTTOM>
+						</POSITION>
+						<ITEMS justify="CENTER" vjustify="CENTER">
+							<ITEM type="ID" value="0">TT_NO</ITEM>
+							<ITEM type="ID" value="1">TT_YES</ITEM>
+						</ITEMS>
+						<SPINUP>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Rt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>101</LEFT>
+								<RIGHT>117</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINUP>
+						<SPINDOWN>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Lt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>-17</LEFT>
+								<RIGHT>-1</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINDOWN>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_ALLOW_AI" HIDDEN>
+						<POSITION>
+							<LEFT>350</LEFT>
+							<RIGHT>450</RIGHT>
+							<TOP>216</TOP>
+							<BOTTOM>241</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">ALLOW_AI</STRING>
+					</WINDOW>
+					<WINDOW type="spinlist" name="ALLOW_AI" HIDDEN>
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>480</LEFT>
+							<RIGHT>580</RIGHT>
+							<TOP>216</TOP>
+							<BOTTOM>241</BOTTOM>
+						</POSITION>
+						<ITEMS justify="CENTER" vjustify="CENTER">
+							<ITEM type="ID" value="0">TT_NO</ITEM>
+							<ITEM type="ID" value="1">TT_YES</ITEM>
+						</ITEMS>
+						<SPINUP>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Rt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>101</LEFT>
+								<RIGHT>117</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINUP>
+						<SPINDOWN>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Lt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>-17</LEFT>
+								<RIGHT>-1</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINDOWN>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_ALLOW_SPECTATORS">
+						<POSITION>
+							<LEFT>350</LEFT>
+							<RIGHT>450</RIGHT>
+							<TOP>189</TOP>
+							<BOTTOM>214</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">ALLOW_SPECTATORS</STRING>
+					</WINDOW>
+					<WINDOW type="spinlist" name="ALLOW_SPECTATORS">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>480</LEFT>
+							<RIGHT>580</RIGHT>
+							<TOP>189</TOP>
+							<BOTTOM>214</BOTTOM>
+						</POSITION>
+						<ITEMS justify="CENTER" vjustify="CENTER">
+							<ITEM type="ID" value="0">TT_NO</ITEM>
+							<ITEM type="ID" value="1">TT_YES</ITEM>
+						</ITEMS>
+						<SPINUP>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Rt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>101</LEFT>
+								<RIGHT>117</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINUP>
+						<SPINDOWN>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Lt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>-17</LEFT>
+								<RIGHT>-1</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINDOWN>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_SPECTATOR_PW">
+						<POSITION>
+							<LEFT>350</LEFT>
+							<RIGHT>455</RIGHT>
+							<TOP>216</TOP>
+							<BOTTOM>241</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HGT_SPECTATOR_PWD</STRING>
+					</WINDOW>
+					<WINDOW type="edit" name="SPECTATOR_PW" MAXCHAR="16">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn3.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn3.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn3.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn3.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>480</LEFT>
+							<RIGHT>670</RIGHT>
+							<TOP>216</TOP>
+							<BOTTOM>241</BOTTOM>
+						</POSITION>
+						<STRING edge="5" justify="LEFT" vjustify="CENTER"></STRING>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_BLUE_PW">
+						<POSITION>
+							<LEFT>350</LEFT>
+							<RIGHT>455</RIGHT>
+							<TOP>243</TOP>
+							<BOTTOM>268</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HGT_BLUE_PWD</STRING>
+					</WINDOW>
+					<WINDOW type="edit" name="BLUE_PW" MAXCHAR="16">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn3.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn3.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn3.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn3.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>480</LEFT>
+							<RIGHT>670</RIGHT>
+							<TOP>243</TOP>
+							<BOTTOM>268</BOTTOM>
+						</POSITION>
+						<STRING edge="5" justify="LEFT" vjustify="CENTER"></STRING>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_RED_PW">
+						<POSITION>
+							<LEFT>350</LEFT>
+							<RIGHT>455</RIGHT>
+							<TOP>270</TOP>
+							<BOTTOM>295</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">HGT_RED_PWD</STRING>
+					</WINDOW>
+					<WINDOW type="edit" name="RED_PW" MAXCHAR="16">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn3.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn3.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn3.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="2">btn3.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>480</LEFT>
+							<RIGHT>670</RIGHT>
+							<TOP>270</TOP>
+							<BOTTOM>295</BOTTOM>
+						</POSITION>
+						<STRING edge="5" justify="LEFT" vjustify="CENTER"></STRING>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="static" name="STATIC_TOD_CONTINUITY">
+						<POSITION>
+							<LEFT>0</LEFT>
+							<RIGHT>130</RIGHT>
+							<TOP>270</TOP>
+							<BOTTOM>295</BOTTOM>
+						</POSITION>
+						<STRING justify="LEFT" vjustify="CENTER" type="id">TOD_CONTINUITY</STRING>
+					</WINDOW>
+					<WINDOW type="spinlist" name="TOD_CONTINUITY">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn2.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn2.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>140</LEFT>
+							<RIGHT>240</RIGHT>
+							<TOP>270</TOP>
+							<BOTTOM>295</BOTTOM>
+						</POSITION>
+						<ITEMS justify="CENTER" vjustify="CENTER">
+							<ITEM type="ID" value="0">TT_NO</ITEM>
+							<ITEM type="ID" value="1">TT_YES</ITEM>
+						</ITEMS>
+						<SPINUP>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Rt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Rt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>101</LEFT>
+								<RIGHT>117</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINUP>
+						<SPINDOWN>
+							<APPEARANCE type="image" state="default" map_state="0" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover" map_state="1" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected" map_state="2" height="24">Lt_arrw.tga</APPEARANCE>
+							<APPEARANCE type="image" state="disabled" map_state="3" height="24">Lt_arrw.tga</APPEARANCE>
+							<POSITION>
+								<LEFT>-17</LEFT>
+								<RIGHT>-1</RIGHT>
+								<BOTTOM>25</BOTTOM>
+							</POSITION>
+						</SPINDOWN>
+						<SOUND state="mousein" trigger="MOVER_COMBO">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+					</WINDOW>
+				</WINDOW>
+
+				<WINDOW type="window" name="TAB_HOST_WEAPON" HIDDEN>
+					<POSITION>
+						<LEFT>40</LEFT>
+						<TOP>110</TOP>
+					</POSITION>
+					<WINDOW type="static" name="STATIC_WPN_RESTRICT">
+						<POSITION>
+							<LEFT>200</LEFT>
+							<RIGHT>500</RIGHT>
+							<TOP>40</TOP>
+							<BOTTOM>65</BOTTOM>
+						</POSITION>
+						<FONT>
+							<NAME>%DEF_FONTNAME_LG%</NAME>
+							<DEFAULT_FG>%DEF_TEXT_FG%</DEFAULT_FG>
+							<MOUSEOVER_FG>%DEF_TEXT_MOUSEOVER_FG%</MOUSEOVER_FG>
+							<SELECTED_FG>%DEF_TEXT_SELECTED_FG%</SELECTED_FG>
+							<DISABLED_FG>%DEF_TEXT_DISABLED_FG%</DISABLED_FG>
+						</FONT>
+						<STRING justify="CENTER" vjustify="CENTER" type="id">WEAPON_RESTRICTIONS</STRING>
+					</WINDOW>
+					<WINDOW type="window" name="WEAPON_LIST_HEADER_BKGND">
+						<POSITION>
+							<LEFT>200</LEFT>
+							<TOP>70</TOP>
+							<RIGHT>500</RIGHT>
+							<BOTTOM>90</BOTTOM>
+						</POSITION>
+						<APPEARANCE type="color" state="default">%TRIM_COLOR%</APPEARANCE>
+					</WINDOW>
+					<WINDOW type="table" name="WEAPON_LIST">
+						<APPEARANCE state="default"></APPEARANCE>
+						<POSITION>
+							<LEFT>200</LEFT>
+							<TOP>70</TOP>
+							<RIGHT>500</RIGHT>
+							<BOTTOM>305</BOTTOM>
+						</POSITION>
+						<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+						<COLUMN count="2" spacing="0">
+							<HEADER justify="CENTER" vjustify="CENTER" column="0" sort="A" width="200" type="id">Weapon</HEADER>
+							<HEADER justify="CENTER" vjustify="CENTER" column="1" sort="A" width="100" type="id">Available</HEADER>
+
+							<BODY justify="LEFT" vjustify="CENTER" column="0"></BODY>
+							<BODY justify="CENTER" vjustify="CENTER" column="1"></BODY>
+						</COLUMN>
+						<ITEMS>
+							<APPEARANCE type="outline" state="default">%TRIM_COLOR%</APPEARANCE>
+							<APPEARANCE type="color" state="selected">%ITEM_SELECTED_BG%</APPEARANCE>
+						</ITEMS>
+						<MIN_ITEM_HEIGHT>20</MIN_ITEM_HEIGHT>
+						<FIXED_HEADER_HEIGHT>20</FIXED_HEADER_HEIGHT>
+						<SCROLLBAR>
+							<APPEARANCE type="image" state="default">m_scrolV.tga</APPEARANCE>
+							<APPEARANCE type="image" state="mouseover">m_scrolV.tga</APPEARANCE>
+							<APPEARANCE type="image" state="selected">m_scrolV.tga</APPEARANCE>
+							<SHUTTLE type="image" state="default">shuttlev.tga</SHUTTLE>
+							<SHUTTLE type="image" state="mouseover">shuttlev.tga</SHUTTLE>
+							<SHUTTLE type="image" state="selected">shuttlev.tga</SHUTTLE>
+							<SCROLLUP type="image" state="default" map_state="0" height="24">up2arrw.tga</APPEARANCE>
+							<SCROLLUP type="image" state="mouseover" map_state="1" height="24">up2arrw.tga</APPEARANCE>
+							<SCROLLUP type="image" state="selected" map_state="2" height="24">up2arrw.tga</APPEARANCE>
+							<SCROLLUP type="image" state="disabled" map_state="3 height="24">up2arrw.tga</APPEARANCE>
+							<SCROLLDOWN type="image" state="default" map_state="0" height="24">dn2arrw.tga</APPEARANCE>
+							<SCROLLDOWN type="image" state="mouseover" map_state="1" height="24">dn2arrw.tga</APPEARANCE>
+							<SCROLLDOWN type="image" state="selected" map_state="2" height="24">dn2arrw.tga</APPEARANCE>
+							<SCROLLDOWN type="image" state="disabled" map_state="3" height="24">dn2arrw.tga</APPEARANCE>
+							<SOUND state="selected" trigger="CLICK_VALUE">menu.lwf</SOUND>
+							<POSITION>
+								<LEFT>306</LEFT>
+								<TOP>20</TOP>
+								<RIGHT>326</RIGHT>
+								<BOTTOM>220</BOTTOM>
+							</POSITION>
+						</SCROLLBAR>
+					</WINDOW>
+					<WINDOW type="button" name="WPN_MISSION">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn9.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn9.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn9.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn9.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>240</LEFT>
+							<RIGHT>310</RIGHT>
+							<TOP>305</TOP>
+							<BOTTOM>330</BOTTOM>
+						</POSITION>
+						<STRING type="id" justify="CENTER" vjustify="CENTER">MISSION</STRING>
+						<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="button" name="WPN_NEVER">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn9.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn9.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn9.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn9.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>315</LEFT>
+							<RIGHT>385</RIGHT>
+							<TOP>305</TOP>
+							<BOTTOM>330</BOTTOM>
+						</POSITION>
+						<STRING type="id" justify="CENTER" vjustify="CENTER">NEVER</STRING>
+						<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+					</WINDOW>
+					<WINDOW type="button" name="WPN_ALWAYS">
+						<APPEARANCE type="image" state="default" map_state="0" height="24">btn9.tga</APPEARANCE>
+						<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn9.tga</APPEARANCE>
+						<APPEARANCE type="image" state="selected" map_state="2" height="24">btn9.tga</APPEARANCE>
+						<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn9.tga</APPEARANCE>
+						<POSITION>
+							<LEFT>390</LEFT>
+							<RIGHT>460</RIGHT>
+							<TOP>305</TOP>
+							<BOTTOM>330</BOTTOM>
+						</POSITION>
+						<STRING type="id" justify="CENTER" vjustify="CENTER">ALWAYS</STRING>
+						<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+						<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+					</WINDOW>
+				</WINDOW>
+			</WINDOW>
+
+			</WINDOW>
+
+			<WINDOW type="button" name="BACK">
+				<ACTION type="POP_SCREEN"></ACTION>
+				<HOTKEY VIRTUAL>VK_ESCAPE</HOTKEY>
+				<APPEARANCE state="default"></APPEARANCE>
+				<APPEARANCE state="mouseover"></APPEARANCE>
+				<APPEARANCE state="selected"></APPEARANCE>
+				<APPEARANCE state="disabled"></APPEARANCE>
+				<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+				<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+				<FONT>
+					<NAME>%DEF_FONTNAME_LG%</NAME>
+					<DEFAULT_FG>%DEF_TEXT_FG%</DEFAULT_FG>
+					<MOUSEOVER_FG>%DEF_TEXT_MOUSEOVER_FG%</MOUSEOVER_FG>
+					<SELECTED_FG>%DEF_TEXT_SELECTED_FG%</SELECTED_FG>
+					<DISABLED_FG>%DEF_TEXT_DISABLED_FG%</DISABLED_FG>
+				</FONT>
+				<POSITION>
+					<LEFT>15</LEFT>
+					<TOP>486</TOP>
+				</POSITION>
+				<STRING type="id" justify="LEFT">NAV_BACK</STRING>
+			</WINDOW>
+		</WINDOW>
+	</WINDOW>
+</SCREEN>

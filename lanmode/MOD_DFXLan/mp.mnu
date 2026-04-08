@@ -1,0 +1,271 @@
+<SCREEN>
+	<NAME>LAN_MULTI_PLAYER</NAME>
+	<MUSICVAR>6</MUSICVAR>
+	<WINDOW type="window" name="OUTER_MAIN">
+		<APPEARANCE type="image" state="default">letterbox.tga</APPEARANCE>
+		<POSITION>
+			<LEFT>0</LEFT>
+			<TOP>0</TOP>
+			<RIGHT>800</RIGHT>
+			<BOTTOM>600</BOTTOM>
+		</POSITION>
+		<TEXT_RSRC>menutxt.BIN</TEXT_RSRC>
+		<CURSOR>
+			<FILE>newarow1.tga</FILE>
+			<FLAGS>STANDARD_TRANSPARENT</FLAGS>
+		</CURSOR>
+		<FONT>
+			<NAME>%DEF_FONTNAME%</NAME>
+			<DEFAULT_FG>%DEF_TEXT_FG%</DEFAULT_FG>
+			<MOUSEOVER_FG>%DEF_TEXT_MOUSEOVER_FG%</MOUSEOVER_FG>
+			<SELECTED_FG>%DEF_TEXT_SELECTED_FG%</SELECTED_FG>
+			<DISABLED_FG>%DEF_TEXT_DISABLED_FG%</DISABLED_FG>
+		</FONT>
+		<FRAME>
+			<STENCIL size="32">BORDER2.tga</STENCIL>
+			<BRUSH>BOXTILE.tga</BRUSH>
+			<MONOGRAM>MONOGRAM.tga</MONOGRAM>
+		</FRAME>
+
+		<WINDOW type="window" name="MAIN">
+			<POSITION>
+				<TOP>75</TOP>
+				<LEFT>0</LEFT>
+			</POSITION>
+<!-- bink panels begin-->
+			<WINDOW type="window" name="LOGO_SPLASH_HDR">
+				<APPEARANCE type="custom" state="default"></APPEARANCE>
+				<POSITION>
+					<TOP>-75</TOP>
+					<BOTTOM>0</BOTTOM>
+					<LEFT>0</LEFT>
+					<RIGHT>801</RIGHT>
+				</POSITION>
+			</WINDOW>
+			<WINDOW type="window" name="LOGO_SPLASH_FTR">
+				<APPEARANCE type="custom" state="default"></APPEARANCE>
+				<POSITION>
+					<TOP>450</TOP>
+					<BOTTOM>525</BOTTOM>
+					<LEFT>0</LEFT>
+					<RIGHT>801</RIGHT>
+				</POSITION>
+			</WINDOW>
+<!-- bink panels end-->
+
+			<WINDOW type="window" name="LAN">
+				<POSITION>
+					<LEFT>70</LEFT>
+					<TOP>10</TOP>
+				</POSITION>
+
+				<WINDOW type="static" name="STATIC_TITLE">
+					<FONT>
+						<NAME>%DEF_FONTNAME_XL%</NAME>
+						<DEFAULT_FG>%DEF_TEXT_FG%</DEFAULT_FG>
+					</FONT>
+					<POSITION>
+						<LEFT>130</LEFT>
+						<TOP>0</TOP>
+					</POSITION>
+					<STRING justify="LEFT">LAN CAMPAIGNS</STRING>
+				</WINDOW>
+
+				<WINDOW type="button" name="LAN_SEARCH">
+					<APPEARANCE type="image" state="default" map_state="0" height="24">btn20.tga</APPEARANCE>
+					<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn20.tga</APPEARANCE>
+					<APPEARANCE type="image" state="selected" map_state="2" height="24">btn20.tga</APPEARANCE>
+					<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn20.tga</APPEARANCE>
+					<POSITION>
+						<LEFT>0</LEFT>
+						<RIGHT>110</RIGHT>
+						<TOP>30</TOP>
+						<BOTTOM>54</BOTTOM>
+					</POSITION>
+					<STRING justify="CENTER" vjustify="CENTER" type="id">MP_SEARCH</STRING>
+					<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+					<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+				</WINDOW>
+
+				<WINDOW type="button" name="LAN_JOINGAME">
+					<HOTKEY VIRTUAL>VK_RETURN</HOTKEY>
+					<APPEARANCE type="image" state="default" map_state="0" height="24">btn20.tga</APPEARANCE>
+					<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn20.tga</APPEARANCE>
+					<APPEARANCE type="image" state="selected" map_state="2" height="24">btn20.tga</APPEARANCE>
+					<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn20.tga</APPEARANCE>
+					<POSITION>
+						<LEFT>0</LEFT>
+						<RIGHT>110</RIGHT>
+						<TOP>60</TOP>
+						<BOTTOM>84</BOTTOM>
+					</POSITION>
+					<STRING justify="CENTER" vjustify="CENTER" type="id">MP_JOINGAME</STRING>
+					<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+					<SOUND state="selected" trigger="CLICK_JOIN">menu.lwf</SOUND>
+				</WINDOW>
+
+				<WINDOW type="button" name="LAN_HOSTGAME">
+					<ACTION type="screen" file="main.mnu">NW_LAN_HOST</ACTION>
+					<APPEARANCE type="image" state="default" map_state="0" height="24">btn20.tga</APPEARANCE>
+					<APPEARANCE type="image" state="mouseover" map_state="1" height="24">btn20.tga</APPEARANCE>
+					<APPEARANCE type="image" state="selected" map_state="2" height="24">btn20.tga</APPEARANCE>
+					<APPEARANCE type="image" state="disabled" map_state="3" height="24">btn20.tga</APPEARANCE>
+					<POSITION>
+						<LEFT>0</LEFT>
+						<RIGHT>110</RIGHT>
+						<TOP>90</TOP>
+						<BOTTOM>114</BOTTOM>
+					</POSITION>
+					<STRING justify="CENTER" vjustify="CENTER" type="id">MP_HOSTGAME</STRING>
+					<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+					<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+				</WINDOW>
+
+				<WINDOW type="list" name="LAN_GAME_LIST">
+					<APPEARANCE type="outline" state="default">%TRIM_COLOR%</APPEARANCE>
+					<POSITION>
+						<LEFT>130</LEFT>
+						<TOP>30</TOP>
+						<RIGHT>600</RIGHT>
+						<BOTTOM>350</BOTTOM>
+					</POSITION>
+					<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+					<ITEMS justify="LEFT" vjustify="CENTER">
+						<APPEARANCE type="color" state="selected">%ITEM_SELECTED_BG%</APPEARANCE>
+					</ITEMS>
+					<MIN_ITEM_HEIGHT>24</MIN_ITEM_HEIGHT>
+				</WINDOW>
+
+				<WINDOW type="static" name="MESSAGES">
+					<POSITION>
+						<LEFT>130</LEFT>
+						<TOP>360</TOP>
+						<RIGHT>600</RIGHT>
+						<BOTTOM>380</BOTTOM>
+					</POSITION>
+					<STRING justify="LEFT"></STRING>
+				</WINDOW>
+			</WINDOW>
+
+			<WINDOW type="button" name="BACK">
+				<ACTION type="POP_SCREEN"></ACTION>
+				<HOTKEY VIRTUAL>VK_ESCAPE</HOTKEY>
+				<APPEARANCE state="default"></APPEARANCE>
+				<APPEARANCE state="mouseover"></APPEARANCE>
+				<APPEARANCE state="selected"></APPEARANCE>
+				<APPEARANCE state="disabled"></APPEARANCE>
+				<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+				<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+				<FONT>
+					<NAME>%DEF_FONTNAME_LG%</NAME>
+					<DEFAULT_FG>%DEF_TEXT_FG%</DEFAULT_FG>
+					<MOUSEOVER_FG>%DEF_TEXT_MOUSEOVER_FG%</MOUSEOVER_FG>
+					<SELECTED_FG>%DEF_TEXT_SELECTED_FG%</SELECTED_FG>
+					<DISABLED_FG>%DEF_TEXT_DISABLED_FG%</DISABLED_FG>
+				</FONT>
+				<POSITION>
+					<LEFT>15</LEFT>
+					<TOP>480</TOP>
+				</POSITION>
+				<STRING type="id" justify="LEFT">NAV_Back</STRING>
+			</WINDOW>
+		</WINDOW>
+	</WINDOW>
+</SCREEN>
+
+<SCREEN>
+	<NAME>NW_MULTI_PLAYER</NAME>
+	<MUSICVAR>6</MUSICVAR>
+	<WINDOW type="window" name="OUTER_MAIN">
+		<APPEARANCE type="image" state="default">letterbox.tga</APPEARANCE>
+		<POSITION>
+			<LEFT>0</LEFT>
+			<TOP>0</TOP>
+			<RIGHT>800</RIGHT>
+			<BOTTOM>600</BOTTOM>
+		</POSITION>
+		<TEXT_RSRC>menutxt.BIN</TEXT_RSRC>
+		<CURSOR>
+			<FILE>newarow1.tga</FILE>
+			<FLAGS>STANDARD_TRANSPARENT</FLAGS>
+		</CURSOR>
+		<FONT>
+			<NAME>%DEF_FONTNAME%</NAME>
+			<DEFAULT_FG>%DEF_TEXT_FG%</DEFAULT_FG>
+			<MOUSEOVER_FG>%DEF_TEXT_MOUSEOVER_FG%</MOUSEOVER_FG>
+			<SELECTED_FG>%DEF_TEXT_SELECTED_FG%</SELECTED_FG>
+			<DISABLED_FG>%DEF_TEXT_DISABLED_FG%</DISABLED_FG>
+		</FONT>
+		<FRAME>
+			<STENCIL size="32">BORDER2.tga</STENCIL>
+			<BRUSH>BOXTILE.tga</BRUSH>
+			<MONOGRAM>MONOGRAM.tga</MONOGRAM>
+		</FRAME>
+
+		<WINDOW type="window" name="MAIN">
+			<POSITION>
+				<TOP>75</TOP>
+				<LEFT>0</LEFT>
+			</POSITION>
+	<!-- bink panels begin-->
+			<WINDOW type="window" name="LOGO_SPLASH_HDR">
+				<APPEARANCE type="custom" state="default"></APPEARANCE>
+				<POSITION>
+					<TOP>-75</TOP>
+					<BOTTOM>0</BOTTOM>
+					<LEFT>0</LEFT>
+					<RIGHT>801</RIGHT>
+				</POSITION>
+			</WINDOW>
+			<WINDOW type="window" name="LOGO_SPLASH_FTR">
+				<APPEARANCE type="custom" state="default"></APPEARANCE>
+				<POSITION>
+					<TOP>450</TOP>
+					<BOTTOM>525</BOTTOM>
+					<LEFT>0</LEFT>
+					<RIGHT>801</RIGHT>
+				</POSITION>
+			</WINDOW>
+	<!-- bink panels end-->
+
+			<WINDOW type="window" name="NOVAWORLD">
+				<POSITION>
+					<LEFT>0</LEFT>
+					<TOP>0</TOP>
+				</POSITION>
+			</WINDOW>
+
+			<WINDOW type="window" name="TAB_HOSTMNX">
+				<POSITION>
+					<LEFT>0</LEFT>
+					<TOP>0</TOP>
+				</POSITION>
+				<WINDOW type="window" name="HOSTMNX">
+				</WINDOW>
+			</WINDOW>
+
+			<WINDOW type="button" name="BACK">
+				<ACTION type="POP_SCREEN"></ACTION>
+				<HOTKEY VIRTUAL>VK_ESCAPE</HOTKEY>
+				<APPEARANCE state="default"></APPEARANCE>
+				<APPEARANCE state="mouseover"></APPEARANCE>
+				<APPEARANCE state="selected"></APPEARANCE>
+				<APPEARANCE state="disabled"></APPEARANCE>
+				<SOUND state="mousein" trigger="MOUSE_OVER">menu.lwf</SOUND>
+				<SOUND state="selected" trigger="CLICK_SELECT">menu.lwf</SOUND>
+				<FONT>
+					<NAME>%DEF_FONTNAME_LG%</NAME>
+					<DEFAULT_FG>%DEF_TEXT_FG%</DEFAULT_FG>
+					<MOUSEOVER_FG>%DEF_TEXT_MOUSEOVER_FG%</MOUSEOVER_FG>
+					<SELECTED_FG>%DEF_TEXT_SELECTED_FG%</SELECTED_FG>
+					<DISABLED_FG>%DEF_TEXT_DISABLED_FG%</DISABLED_FG>
+				</FONT>
+				<POSITION>
+					<LEFT>15</LEFT>
+					<TOP>480</TOP>
+				</POSITION>
+				<STRING type="id" justify="LEFT">NAV_Back</STRING>
+			</WINDOW>
+		</WINDOW>
+	</WINDOW>
+</SCREEN>
