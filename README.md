@@ -1,30 +1,35 @@
 # NovaHQ Heartbeat DLL for JOP / DFX / DFX2
-Since 2001, [Novahq.net](https://novahq.net) has provided players with news, resources and forums for the Delta Force / Joint Operations series of games. Around 2015, Novahq.net created its own lobby system to provide a backup public lobby for DF1, DF2, LW, TFD and BHD. In 2017 Novahq.net expanded its list of games covered by the lobby to include: AF3, F16, F22, M29, L3, TTF, C4.
+Since 2001, [Novahq.net](https://novahq.net) has provided players with news, resources and forums for the Delta Force / Joint Operations series of games. Around 2015, Novahq.net created its own lobby system to provide a backup public lobby for DF1, DF2, LW, TFD and BHD.  
 
-Now, after many years and a lot of research, NovaHQ is finally able to provide a public lobby for the remaining 3 games: Joint Operations, Delta Force Xtreme & Delta Force Xtreme 2. 
+In 2017 Novahq.net expanded its list of games covered by the lobby to include: `Armored Fist 3`, `Comanche 3 Gold`, `Comanche 4`, `F-16 Multirole Fighter`, `F-22 Raptor`, `MiG-29 Fulcrum`, `F-22 Lightning 3` and `Tachyon: The Fringe`. 
 
-## NHQHeartbeat
-A `dinput8.dll` proxy that adds custom lobby support and LAN mode (DFX/DFX2) to NovaLogic games:
+Now, after many years and a lot of research, Novahq.net is finally able to provide a public lobby for the remaining three games: `Joint Operations`, `Delta Force Xtreme` & `Delta Force Xtreme 2`. 
 
-- **Joint Operations: Combined Arms Gold** (V1.7.5.7, Retail and Steam)
-- **Delta Force: Xtreme** (V1.6.9.3, Retail and Steam)
-- **Delta Force: Xtreme 2** (V1.7.5.7, Retail and Steam)
+## Supported games
 
 > **Notice:** This project is intended for use with legitimately owned copies of the supported game(s) to enable continued online play through community-operated lobby servers. It is not intended to be used with illegally obtained copies of the game.
 
+The proxy dll has been built and tested against the game versions and distributions listed below. Patched or cracked executables are not supported, and support for them will not be added. There are plenty of legitimate ways to obtain a retail or digital copy. 
+
+- **Joint Operations: Typhoon Rising w/ Escalation Expansion Pack** (V1.7.5.7, Retail CDROM)
+- **Joint Operations: Combined Arms Gold** (V1.7.5.7, Retail CDROM, NovaLogic Digital and Steam)
+- **Delta Force: Xtreme** (V1.6.9.3, Retail CDROM, NovaLogic Digital, GOG and Steam)
+- **Delta Force: Xtreme 2** (V1.7.5.7, Retail CDROM, NovaLogic Digital and Steam)
+
 ## What It Does
-These games rely on **NovaWorld** for online play. NovaWorld no longer allows account creation so it's impossible for new players to play online. Players with accounts cannot even login to Delta Force Xtreme or Delta Force Xtreme 2 any longer as NovaWorld responds with an error along the lines of "The database you are attempting to use is currently not available. (Code NWNODB01)" error. This DLL proxies `dinput8.dll` to load alongside the game, intercepting and answering NWU protocol calls locally within the DLL itself, without needing to contact NovaWorld.
+
+These games rely on **NovaWorld** for online play. NovaWorld no longer allows account creation, so it's impossible for new players to play online. Players with accounts cannot even log in to Delta Force Xtreme or Delta Force Xtreme 2 any longer as NovaWorld responds with an error along the lines of "The database you are attempting to use is currently not available. (Code NWNODB01)". This project is a `dinput8.dll` proxy that loads alongside the game, intercepting and answering NWU protocol calls locally within the DLL itself to add custom lobby support and LAN mode (DFX/DFX2) without needing to contact NovaWorld.
 
 ### 1. NWU Bypass
-Intercepts the NovaWorld authentication flow (gate server handshake, NWU auth) and discards it, returning permissive responses so the game believes it authenticated successfully. The game will never connect to NovaWorld when the bypass is enabled. This removes the NovaWorld account requirement for hosting and playing online. Since Delta Force Xtreme and Delta Force Xtreme 2 no longer work online, enabling this is required for any type of online play. Joint Operation players with NovaWorld accounts do not need to enable this, but it must be enabled to play on any server outside of NovaWorld.
+Intercepts the NovaWorld authentication flow (gate server handshake, NWU auth) and discards it, returning permissive responses so the game believes it authenticated successfully. The game will never connect to NovaWorld when the bypass is enabled. This removes the NovaWorld account requirement for hosting and playing online. Since Delta Force Xtreme and Delta Force Xtreme 2 no longer work online, enabling this is required for any type of online play. Joint Operations players with NovaWorld accounts do not need to enable this, but it must be enabled to play on any server outside of NovaWorld.
 
 ### 2. NovaHQ Lobby Heartbeat
-When hosting, sends a periodic heartbeat to the NovaHQ lobby with server info such as: server name, map, game mode, player list, player count, etc. This allows the server to appear in the NovaHQ lobby allowing players to join. Works with or without the NWU bypass enabled and only sends the heartbeat while hosting, not while playing.
+When hosting, sends a periodic heartbeat to the NovaHQ lobby with server info such as server name, map, game mode, player list, player count, etc. This allows the server to appear in the NovaHQ lobby allowing players to join. Works with or without the NWU bypass enabled and only sends the heartbeat while hosting, not while playing.
 
-- **Player Validation:** When the heartbeat is enabled and an active hosting session is detected, NWU player validation will be disabled. The game originally calls home to NovaWorld for each connecting player, ensuring that the player is logged into NovaWorld. This removes that check and allows players that do not have an account the ability to join.
+- **Player Validation:** When the heartbeat is enabled and an active hosting session is detected, NWU player validation will be disabled. The game originally calls home to NovaWorld for each connecting player, ensuring that the player is logged into NovaWorld. This removes that check and allows players who do not have an account to join.
 
 ### 3. LAN Mode
-Enables direct LAN play without any internet connection for DFX and DFX2 (JOP has native support). Players can host and join games over a local network using the LAN browser built into the game. The DLL handles all the network state management, button wiring, and validation bypasses needed for LAN discovery and joining to work. You must use the provided `mp.mnu` and `main.mnu` templates for LAN Mode to work.
+Enables direct LAN play without any internet connection for DFX and DFX2 (JOP already has native support). Players can host and join games over a local network using the LAN browser built into the game. The DLL handles all the network state management, button wiring, and validation bypasses needed for LAN discovery and joining to work. You must use the provided `mp.mnu` and `main.mnu` templates for LAN Mode to work.
 
 ## How It Works
 
@@ -34,15 +39,18 @@ The game automatically loads `dinput8.dll` at startup for DirectInput. By placin
 2. Auto-detects the game version from the PE header (SizeOfImage) and loads the appropriate address/offset tables.
 3. Hooks Winsock and IAT functions to intercept network traffic originally destined for NovaWorld. Replaces the internal functions with permissive responses.
 4. Injects the NovaHQ Lobby URL into the gate server response, directing your game to load lobby information from NovaHQ.
-5. While hosting, sends a periodic heartbeat packet (5-8kb via HTTP) and a single UDP packet (less than 1kb) every 30 seconds to the NovaHQ Lobby. The UDP packet enables the NovaHQ Lobby to determine your game server port when behind a NAT router.
+5. While hosting, sends a periodic heartbeat packet and a single UDP packet every 30 seconds to the NovaHQ Lobby. The UDP packet enables the NovaHQ Lobby to determine your game server port when behind a NAT router.
 
-> **Note:** Core gameplay, input, and rendering are unaffected. The DLL only intercepts lobby and authentication traffic, with optional crash guards that protect against known engine issues during map cycling. Your gameplay, latency, and client-server connections run exactly as they did before. If you are crashing in game, sending the last sysdump.txt and a description of the crash would help me determine the cause. 
+> **Note:** Core gameplay, input, and rendering are unaffected. The DLL only intercepts lobby and authentication traffic, with optional crash guards that protect against known engine issues during map cycling. Your gameplay, latency, and client-server connections run exactly as they did before. If you are crashing in game, sending the last sysdump.txt and a description of the crash would help me determine the cause.
 
 ## Installation
 
-1. Copy `dinput8.dll` from this project into the game directory
-2. Copy `NHQHeartbeat.ini` into the game directory and configure it
-3. For LAN mode (DFX/DFX2): run `mnu/MOD_Install.bat` to install the custom menu files (`main.mnu`, `mp.mnu`) into the game's `localres.pff`. The installer will prompt you to select your game folder and uses the game's `pack.exe` to pack the menu files into the PFF archive. A backup of `localres.pff` is offered before any changes are made, but you should make your own backup anyways.
+> **Note:** If your game is installed in `Program Files (x86)`, consider reinstalling it to your home directory or another drive (e.g. `C:\Users\<YOUR_USERNAME>\Games\Joint Operations` or `D:\Games\Joint Operations`). There is no need to run these older games with admin privileges when they are installed in a folder where you already have write access. I will not troubleshoot issues caused by a `Program Files` install - it is the root cause of 99% of user issues with these games.
+
+1. Download from the GitHub releases page (to the right) or find it on [Novahq.net](https://novahq.net) in the downloads section.
+2. Copy `dinput8.dll` from this project into the game directory
+3. Copy `NHQHeartbeat.ini` into the game directory. The default config will cover 99% of users.
+4. ***Optional:*** For LAN mode (DFX/DFX2): run `mnu/MOD_Install.bat` to install the custom menu files (`main.mnu`, `mp.mnu`) into the game's `localres.pff`. The installer will prompt you to select your game folder and uses the game's `pack.exe` to pack the menu files into the PFF archive. A backup of `localres.pff` is offered before any changes are made, but you should make your own backup.
 
 ## Configuring (NHQHeartbeat.ini)
 
@@ -58,7 +66,7 @@ Bypasses the NWU authentication flow from the game, allowing you to host and pla
 ### `Heartbeat` *(default: 1)*
 When active and hosting, a periodic heartbeat is sent to the lobby server with your server's information, allowing it to be listed on the NovaHQ lobby. Other than your IP and port, no personal information is sent. The heartbeat only sends generic server information like server name, player names, player count, map, game mode, etc.
 
-> When Heartbeat is enabled, NWU player validation is disabled making it possible for players that have not authenticated with NovaWorld to join your game. If you do not want alternate lobby players to join your lobby, you must disable the heartbeat.
+> When Heartbeat is enabled, NWU player validation is disabled, making it possible for players who have not authenticated with NovaWorld to join your game. If you do not want alternate lobby players to join your lobby, you must disable the heartbeat.
 
 ### `AntiSysDump` *(default: 1)*
 Enables crash guards that prevent known game engine sysdumps. Protects against crashes caused by corrupt GImage pointers, invalid material pointers during map cycling, and other rendering issues. Works with or without BypassNWU.
@@ -70,12 +78,13 @@ Deletes the "cache" folder in the game directory on startup. The game uses this 
 When enabled, multiple instances of the game can be run simultaneously. Useful for testing or hosting multiple servers on the same machine. ***DOES NOT WORK WITH STEAM***
 
 ### `StaticHostVars` *(default: 0)*
-Forces hosting variables (BaffleKey, PCIDKey, AppId) to static values instead of random. Useful for debugging when creating your own host/join flow. Unless you know what you are doing that, you should probably not enable this.
+Forces hosting variables (BaffleKey, PCIDKey, AppId) to static values instead of random. Useful for debugging when creating your own host/join flow. You should probably not enable this.
 
 ### `ServerKey` *(default: empty)*
 A SHA1 hash you generate, included in the heartbeat as a unique identifier for your server to prevent impersonation. You can generate a SHA1 hash from any string using online tools. Must be a valid SHA1 hash or it will be rejected.
 
-> **Note:** As of 2026/04/07, the custom lobby does not require or use this field, but it may be used in the future for stats tracking, server management, or other features that require a unique server identifier.
+> **Note:** As of 2026/04/10, the custom lobby does not require or use this field, but it may be used in the future for stats tracking, server management, or other features that require a unique server identifier.
 
 ## Special thanks
+
 I want to give a HUGE shoutout to biggy/taylorfinnell from the [OpenNova](https://github.com/opennova-net) project. Their knowledge of the game is surpassed by no-one, and their repo and projects were a huge help in making this possible.
