@@ -5,37 +5,35 @@
 *.suo
 *.user*
 .*/
+_*/
 packages/
-build/
 node_modules/
 vendor/
 tests/
 logs/
-Research/
 release/
 
 # Specific
-.gitnotes
 .DS_Store
-desktop.ini
-[Nn]otes.txt
+.gitnotes
+[Dd]esktop.ini
 [Tt]humbs.db
-todo.txt
+Archive.bat
 web.config
+*- [Cc]opy*
 /*Test.php
 *secrets.h
 
 # Wildcards
-_*/
-*- [Cc]opy*
 *.7z
 *.asc
 *.auth*
 *.bak*
 *.bat*
 *.cfg
+*.cla*
 *.conf*
-*.copilot*
+*.cop*
 *.cred*
 *.crt
 *.db
@@ -59,13 +57,14 @@ _*/
 *.pem
 *.pfx
 *.rar
+*.ret*
 *.secret
 *.sqlite*
-*.token
+*.sta*
 *.todo
+*.token
 *.url
 *.zip
 
 #include
 !app.config
-!MOD_Install.bat
