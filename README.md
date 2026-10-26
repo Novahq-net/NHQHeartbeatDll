@@ -11,9 +11,12 @@ Now, after many years and a lot of research, Novahq.net is finally able to provi
 
 The proxy dll has been built and tested against the game versions and distributions listed below. Patched or cracked executables are not supported, and support for them will not be added. There are plenty of legitimate ways to obtain a retail or digital copy. 
 
+- **Joint Operations: Typhoon Rising** (V1.6.9.2, Retail CDROM, Compatible with Advanced Warfare 2)
+- **Joint Operations: Typhoon Rising** (V1.7.1.9, Retail CDROM, Compatible with Advanced Warfare 2)
 - **Joint Operations: Typhoon Rising w/ Escalation Expansion Pack** (V1.7.5.7, Retail CDROM)
 - **Joint Operations: Combined Arms Gold** (V1.7.5.7, Retail CDROM, NovaLogic Digital and Steam)
 - **Delta Force: Xtreme** (V1.6.9.3, Retail CDROM, NovaLogic Digital, GOG and Steam)
+- **Delta Force: Xtreme** (V1.7.1.9, NovaLogic Digital Patch)
 - **Delta Force: Xtreme 2** (V1.7.5.7, Retail CDROM, NovaLogic Digital and Steam)
 
 ## What It Does
@@ -28,8 +31,17 @@ When hosting, sends a periodic heartbeat to the NovaHQ lobby with server info su
 
 - **Player Validation:** When the heartbeat is enabled and an active hosting session is detected, NWU player validation will be disabled. The game originally calls home to NovaWorld for each connecting player, ensuring that the player is logged into NovaWorld. This removes that check and allows players who do not have an account to join.
 
-### 3. LAN Mode
+### 3. LAN Mode (DFX/DFX2 Only)
 Enables direct LAN play without any internet connection for DFX and DFX2 (JOP already has native support). Players can host and join games over a local network using the LAN browser built into the game. The DLL handles all the network state management, button wiring, and validation bypasses needed for LAN discovery and joining to work. You must use the provided `mp.mnu` and `main.mnu` templates for LAN Mode to work.
+
+**Do not install this after installing a MOD.** 
+
+### 4. Networking Improvements
+When hosting, and `SendRate` is set to 32, 64 or 125 the game will send updates to your players more often, so movement, events and AI behavior look smoother. Players do not need to change anything and will automatically benefit from the increased update rate if the host has it enabled. The recommended setting is 64Hz for most hosts, balancing smooth gameplay with reasonable bandwidth usage for cross-region play. 
+
+The DLL also attempts to recover clients that fall behind after lag spikes or packet loss. Lost packets can carry shots, reloads, kills and respawns, so the DLL attempts to recover them instead of discarding them. It also requests twice as many lost packets at once, and fixes a stock bug that could leave a client stuck behind the server with a frozen game world. This helps high ping players stay synchronized with the host for smoother gameplay.
+
+If NetworkFixes is off, the game exe already has a network patch built in, or uses another proxy DLL (such as Joint Operations TAC Mod with onHook), the DLL will ignore the SendRate and NetworkFixes settings. This is done to avoid conflicts with other network modifications.
 
 ## How It Works
 
@@ -41,7 +53,7 @@ The game automatically loads `dinput8.dll` at startup for DirectInput. By placin
 4. Injects the NovaHQ Lobby URL into the gate server response, directing your game to load lobby information from NovaHQ.
 5. While hosting, sends a periodic heartbeat packet and a single UDP packet every 30 seconds to the NovaHQ Lobby. The UDP packet enables the NovaHQ Lobby to determine your game server port when behind a NAT router.
 
-> **Note:** Core gameplay, input, and rendering are unaffected. The DLL only intercepts lobby and authentication traffic, with optional crash guards that protect against known engine issues during map cycling. Your gameplay, latency, and client-server connections run exactly as they did before. If you are crashing in game, sending the last sysdump.txt and a description of the crash would help me determine the cause.
+> **Note:** Core gameplay, input, and rendering are unaffected. The DLL intercepts lobby and authentication traffic, adds optional crash guards that protect against known engine issues during map cycling, and changes how the game sends and recovers network packets (see Networking Improvements). If you are crashing in game, sending the last sysdump.txt and a description of the crash would help me determine the cause.
 
 ## Installation
 
@@ -50,12 +62,15 @@ The game automatically loads `dinput8.dll` at startup for DirectInput. By placin
 1. Download from the GitHub releases page (to the right) or find it on [Novahq.net](https://novahq.net) in the downloads section.
 2. Copy `dinput8.dll` from this project into the game directory
 3. Copy `NHQHeartbeat.ini` into the game directory. The default config will cover 99% of users.
-4. ***Optional:*** For LAN mode (DFX/DFX2): run `mnu/MOD_Install.bat` to install the custom menu files (`main.mnu`, `mp.mnu`) into the game's `localres.pff`. The installer will prompt you to select your game folder and uses the game's `pack.exe` to pack the menu files into the PFF archive. A backup of `localres.pff` is offered before any changes are made, but you should make your own backup.
+4. ***Optional:*** For LAN mode (DFX/DFX2): run `lanmode/MOD_Install.bat` to install the custom menu files (`main.mnu`, `mp.mnu`) into the game's `localres.pff`. The installer will prompt you to select your game folder and uses the game's `pack.exe` to pack the menu files into the PFF archive. A backup of `localres.pff` is offered before any changes are made, but you should make your own backup.
 
 ## Configuring (NHQHeartbeat.ini)
 
 ### `LobbyHost` *(default: nw10.novalobby.net)*
-The lobby server hostname or IP. Do not include `http://` or `https://`. When BypassNWU or Heartbeat is enabled, this becomes the lobby server the game connects to instead of NovaWorld. The LobbyHost must have a web implementation that mimics the NovaWorld lobby for hosting and joining to work.
+The lobby server hostname or IP address. An IP address needs UseHTTPS=0 to work correctly. When BypassNWU or Heartbeat is enabled, this becomes the lobby server the game connects to instead of NovaWorld. The LobbyHost must have a web implementation that mimics the NovaWorld lobby for hosting and joining to work.
+
+### `UseHTTPS` *(default: 1)*
+When enabled, the DLL sends the heartbeat over HTTPS, and when BypassNWU is enabled, all of the game's lobby requests too. If BypassNWU is disabled, official NovaWorld requests are still sent over HTTP, as that is the default behavior of the game. Set it to 0 if your LobbyHost does not support HTTPS, for example an IP address or a private lobby. The NovaHQ lobby currently supports HTTP and HTTPS, but HTTPS will be required in the future.
 
 ### `BypassNWU` *(default: 1)*
 Bypasses the NWU authentication flow from the game, allowing you to host and play online without communicating with NovaWorld. This removes the NovaWorld account requirement but means you won't see servers on the official NovaWorld lobby unless those servers have the heartbeat enabled.
@@ -64,27 +79,49 @@ Bypasses the NWU authentication flow from the game, allowing you to host and pla
 - **Players:** Enable this to connect through the NovaHQ lobby instead of NovaWorld. Without a NovaWorld account, this is required to play or host online.
 
 ### `Heartbeat` *(default: 1)*
-When active and hosting, a periodic heartbeat is sent to the lobby server with your server's information, allowing it to be listed on the NovaHQ lobby. Other than your IP and port, no personal information is sent. The heartbeat only sends generic server information like server name, player names, player count, map, game mode, etc.
+When active and hosting, a periodic heartbeat is sent to the lobby server with your server's information, allowing it to be listed on the NovaHQ lobby. Only information related to your current game session is sent with each heartbeat, such as your server and player information.
 
 > When Heartbeat is enabled, NWU player validation is disabled, making it possible for players who have not authenticated with NovaWorld to join your game. If you do not want alternate lobby players to join your lobby, you must disable the heartbeat.
 
-### `AntiSysDump` *(default: 1)*
-Enables crash guards that prevent known game engine sysdumps. Protects against crashes caused by corrupt GImage pointers, invalid material pointers during map cycling, and other rendering issues. Works with or without BypassNWU.
+### `RequireAuth` *(default: 0)*
+When enabled, the lobby requires players to sign in to NovaHQ before they can join your server. Players using the lobby as a guest cannot join. Signed-in players keep the same PCID and character name across sessions, while a guest is identified by IP address, so this makes PCID bans reliable. Not recommended unless you have a player identification problem.
 
-### `CacheFix` *(default: 1)*
-Deletes the "cache" folder in the game directory on startup. The game uses this folder to store web lobby resources which can become stale and cause issues. Enabled by default to ensure a clean cache every launch.
+### `ServerStats` *(default: 1)*
+When enabled and hosting, one extra heartbeat is sent at the end of each round with per-player stats: kills, deaths, weapons, vehicles and various other in-game actions that occurred during the round. The lobby matches the stats to your server by `ServerKey`. Set this to 0 if you do not want stats from your server recorded. Your server stays listed either way. You can view servers stats
+at [https://novahq.net/stats](https://novahq.net/stats).
+
+### `ServerKey` *(default: randomly generated)*
+A unique key sent with every heartbeat to identify your server to the lobby. It is generated on first launch and saved to the ini. You may replace it with a server key of your own. Unless it is already 40 hex characters, it is hashed before it is sent, so the text you type never leaves the ini.
+
+> **Note:** The lobby uses this key to match your server to its stats. Servers sending the same key are grouped as one server, so give each server you run its own key. Remember the key if you move or reinstall the game, or the lobby will treat your server as a new one.
+
+### `SaveStats` *(default: 0)*
+When enabled with Heartbeat and ServerStats, the final stats of each round are also saved as a JSON file in the `NHQStats` folder inside the game folder. Each file is named by the date, the time and the round id, such as `2026-10-01-215700-5e1b1a7e5b20d4c8.json`. 
+
+### `SendRate` *(default: 64)*
+When hosting, raises the network send rate to 32, 64 or 125 (see Networking Improvements). Any other value keeps the game's rate.
+
+### `NetworkFixes` *(default: 1)*
+Turns the networking improvements on or off (see Networking Improvements). Set to 0 to turn all network fixes off. This setting overrides SendRate.
 
 ### `MultiInstance` *(default: 0)*
-When enabled, multiple instances of the game can be run simultaneously. Useful for testing or hosting multiple servers on the same machine. ***DOES NOT WORK WITH STEAM***
+When enabled, multiple instances of the game can be run simultaneously. Useful for testing or hosting multiple servers on the same machine. ***DOES NOT WORK WITH STEAM*** Steam users should use the `/serveonly` switch instead.
+
+### `AntiSysDump` *(default: 1)*
+Enables crash guards that prevent known game engine sysdumps. Protects against crashes caused by corrupt GImage pointers, invalid material pointers during map cycling, and other rendering issues.
+
+### `ReserveSlots` *(default: 1)*
+When enabled, the game reserves a slot for every player the server allows, and stops populating AI once only those slots are left, which may impact the mission's goals. It's recommended to adjust the map or reduce the max players your server allows. The game has 256 slots for people, and without this a mission whose AI leave no free slot crashes the host when a player joins. Works only with `AntiSysDump` enabled.
+
+### `AiDismemberment` *(default: 0)*
+When enabled, the mission's AI can lose a limb in multiplayer. When disabled, they never do, because a severed limb takes one of the game's 256 slots for people, and on a full server a dismembering kill crashes the host. Works only with `AntiSysDump` enabled.
+
+### `CacheFix` *(default: 1)*
+Deletes the "cache" folder in the game directory on startup. The game uses this folder to store web lobby resources which can become stale and cause issues.
 
 ### `StaticHostVars` *(default: 0)*
 Forces hosting variables (BaffleKey, PCIDKey, AppId) to static values instead of random. Useful for debugging when creating your own host/join flow. You should probably not enable this.
 
-### `ServerKey` *(default: empty)*
-A SHA1 hash you generate, included in the heartbeat as a unique identifier for your server to prevent impersonation. You can generate a SHA1 hash from any string using online tools. Must be a valid SHA1 hash or it will be rejected.
-
-> **Note:** As of 2026/04/10, the custom lobby does not require or use this field, but it may be used in the future for stats tracking, server management, or other features that require a unique server identifier.
-
 ## Special thanks
 
-I want to give a HUGE shoutout to biggy/taylorfinnell from the [OpenNova](https://github.com/opennova-net) project. Their knowledge of the game is surpassed by no-one, and their repo and projects were a huge help in making this possible.
+I want to give a HUGE shoutout to biggy/taylorfinnell from the [OpenNova](https://github.com/opennova-net) project. Their knowledge of the game is surpassed by no-one, and their repo and projects were a huge help in making this possible. I also want to thank [BadgerLove](https://github.com/BadgerLove) for their contributions to the games and community with several patches that improved stability, networking, and overall gameplay experience.

@@ -40,6 +40,8 @@ echo      ^|_^| \_^|\___/  \_/_/   \_\_^| ^|_^|\__\_\
 echo. 
 echo %ESC%[0m%ESC%[1m      DFX1/2 LAN Mode https://novahq.net %ESC%[0m
 echo. 
+echo %ESC%[0m%ESC%[1m   DO NOT USE WITH MODS OR JOINT OPERATIONS %ESC%[0m
+echo. 
 echo  %ESC%[0m%ESC%[36m/////////////////////////////////////////////////%ESC%[0m
 echo.
 :: #######################################
