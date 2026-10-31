@@ -24,12 +24,12 @@ The proxy dll has been built and tested against the game versions and distributi
 These games rely on **NovaWorld** for online play. NovaWorld no longer allows account creation, so it's impossible for new players to play online. Players with accounts cannot even log in to Delta Force Xtreme or Delta Force Xtreme 2 any longer as NovaWorld responds with an error along the lines of "The database you are attempting to use is currently not available. (Code NWNODB01)". This project is a `dinput8.dll` proxy that loads alongside the game, intercepting and answering NWU protocol calls locally within the DLL itself to add custom lobby support and LAN mode (DFX/DFX2) without needing to contact NovaWorld.
 
 ### 1. NWU Bypass
-Intercepts the NovaWorld authentication flow (gate server handshake, NWU auth) and discards it, returning permissive responses so the game believes it authenticated successfully. The game will never connect to NovaWorld when the bypass is enabled. This removes the NovaWorld account requirement for hosting and playing online. Since Delta Force Xtreme and Delta Force Xtreme 2 no longer work online, enabling this is required for any type of online play. Joint Operations players with NovaWorld accounts do not need to enable this, but it must be enabled to play on any server outside of NovaWorld.
+Intercepts the NovaWorld authentication flow (gate server handshake, NWU auth) and discards it, returning permissive responses so the game believes it authenticated successfully. The game never connects to NovaWorld while the bypass runs, so no NovaWorld account is needed to host or play online.
 
 ### 2. NovaHQ Lobby Heartbeat
-When hosting, sends a periodic heartbeat to the NovaHQ lobby with server info such as server name, map, game mode, player list, player count, etc. This allows the server to appear in the NovaHQ lobby allowing players to join. Works with or without the NWU bypass enabled and only sends the heartbeat while hosting, not while playing.
+When hosting, sends a periodic heartbeat to the NovaHQ lobby with server info such as server name, map, game mode, player list, player count, etc. This allows the server to appear in the NovaHQ lobby allowing players to join. Works with both lobbies and only sends the heartbeat while hosting, not while playing. A server hosted from **NovaWorld** is listed on both lobbies.
 
-- **Player Validation:** When the heartbeat is enabled and an active hosting session is detected, NWU player validation will be disabled. The game originally calls home to NovaWorld for each connecting player, ensuring that the player is logged into NovaWorld. This removes that check and allows players who do not have an account to join.
+- **Player Validation:** When an active hosting session is detected, NWU player validation will be disabled. The game originally calls home to NovaWorld for each connecting player, ensuring that the player is logged into NovaWorld. This removes that check and allows players who do not have an account to join.
 
 ### 3. LAN Mode (DFX/DFX2 Only)
 Enables direct LAN play without any internet connection for DFX and DFX2 (JOP already has native support). Players can host and join games over a local network using the LAN browser built into the game. The DLL handles all the network state management, button wiring, and validation bypasses needed for LAN discovery and joining to work. You must use the provided `mp.mnu` and `main.mnu` templates for LAN Mode to work.
@@ -42,6 +42,9 @@ When hosting, and `SendRate` is set to 32, 64 or 125 the game will send updates 
 The DLL also attempts to recover clients that fall behind after lag spikes or packet loss. Lost packets can carry shots, reloads, kills and respawns, so the DLL attempts to recover them instead of discarding them. It also requests twice as many lost packets at once, and fixes a stock bug that could leave a client stuck behind the server with a frozen game world. This helps high ping players stay synchronized with the host for smoother gameplay.
 
 If NetworkFixes is off, the game exe already has a network patch built in, or uses another proxy DLL (such as Joint Operations TAC Mod with onHook), the DLL will ignore the SendRate and NetworkFixes settings. This is done to avoid conflicts with other network modifications.
+
+### 5. Large PFF Archives
+The game cannot read a `.pff` archive larger than 2 GB. The DLL lets every supported game read archives up to 4 GB, the largest size the archive format can address. Every player and host who uses an archive larger than 2 GB needs this DLL.
 
 ## How It Works
 
@@ -67,21 +70,7 @@ The game automatically loads `dinput8.dll` at startup for DirectInput. By placin
 ## Configuring (NHQHeartbeat.ini)
 
 ### `LobbyHost` *(default: nw10.novalobby.net)*
-The lobby server hostname or IP address. An IP address needs UseHTTPS=0 to work correctly. When BypassNWU or Heartbeat is enabled, this becomes the lobby server the game connects to instead of NovaWorld. The LobbyHost must have a web implementation that mimics the NovaWorld lobby for hosting and joining to work.
-
-### `UseHTTPS` *(default: 1)*
-When enabled, the DLL sends the heartbeat over HTTPS, and when BypassNWU is enabled, all of the game's lobby requests too. If BypassNWU is disabled, official NovaWorld requests are still sent over HTTP, as that is the default behavior of the game. Set it to 0 if your LobbyHost does not support HTTPS, for example an IP address or a private lobby. The NovaHQ lobby currently supports HTTP and HTTPS, but HTTPS will be required in the future.
-
-### `BypassNWU` *(default: 1)*
-Bypasses the NWU authentication flow from the game, allowing you to host and play online without communicating with NovaWorld. This removes the NovaWorld account requirement but means you won't see servers on the official NovaWorld lobby unless those servers have the heartbeat enabled.
-
-- **Hosts:** If you just want your server listed on the NovaHQ lobby, set `BypassNWU=0` and `Heartbeat=1`. Your game will still authenticate with NovaWorld as normal, but your server will also send a heartbeat to the NovaHQ lobby. Players can then join through the NovaHQ Lobby.
-- **Players:** Enable this to connect through the NovaHQ lobby instead of NovaWorld. Without a NovaWorld account, this is required to play or host online.
-
-### `Heartbeat` *(default: 1)*
-When active and hosting, a periodic heartbeat is sent to the lobby server with your server's information, allowing it to be listed on the NovaHQ lobby. Only information related to your current game session is sent with each heartbeat, such as your server and player information.
-
-> When Heartbeat is enabled, NWU player validation is disabled, making it possible for players who have not authenticated with NovaWorld to join your game. If you do not want alternate lobby players to join your lobby, you must disable the heartbeat.
+The lobby server hostname or IP address. This is the lobby server the game connects to instead of NovaWorld: always in DFX and DFX2, and in JO when you pick NOVAHQ on the main menu. The heartbeat is sent to it as well. The LobbyHost must have a web implementation that mimics the NovaWorld lobby for hosting and joining to work.
 
 ### `RequireAuth` *(default: 0)*
 When enabled, the lobby requires players to sign in to NovaHQ before they can join your server. Players using the lobby as a guest cannot join. Signed-in players keep the same PCID and character name across sessions, while a guest is identified by IP address, so this makes PCID bans reliable. Not recommended unless you have a player identification problem.
@@ -96,7 +85,7 @@ A unique key sent with every heartbeat to identify your server to the lobby. It 
 > **Note:** The lobby uses this key to match your server to its stats. Servers sending the same key are grouped as one server, so give each server you run its own key. Remember the key if you move or reinstall the game, or the lobby will treat your server as a new one.
 
 ### `SaveStats` *(default: 0)*
-When enabled with Heartbeat and ServerStats, the final stats of each round are also saved as a JSON file in the `NHQStats` folder inside the game folder. Each file is named by the date, the time and the round id, such as `2026-10-01-215700-5e1b1a7e5b20d4c8.json`. 
+When enabled with ServerStats, the final stats of each round are also saved as a JSON file in the `NHQStats` folder inside the game folder. Each file is named by the date, the time and the round id, such as `2026-10-01-215700-5e1b1a7e5b20d4c8.json`. 
 
 ### `SendRate` *(default: 64)*
 When hosting, raises the network send rate to 32, 64 or 125 (see Networking Improvements). Any other value keeps the game's rate.
