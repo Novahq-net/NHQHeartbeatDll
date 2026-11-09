@@ -34,17 +34,25 @@ When hosting, sends a periodic heartbeat to the NovaHQ lobby with server info su
 ### 3. LAN Mode (DFX/DFX2 Only)
 Enables direct LAN play without any internet connection for DFX and DFX2 (JOP already has native support). Players can host and join games over a local network using the LAN browser built into the game. The DLL handles all the network state management, button wiring, and validation bypasses needed for LAN discovery and joining to work. You must use the provided `mp.mnu` and `main.mnu` templates for LAN Mode to work.
 
-**Do not install this after installing a MOD.** 
+> **Do not install the LAN Mode files AFTER installing a MOD.** 
 
 ### 4. Networking Improvements
 When hosting, and `SendRate` is set to 32, 64 or 125 the game will send updates to your players more often, so movement, events and AI behavior look smoother. Players do not need to change anything and will automatically benefit from the increased update rate if the host has it enabled. The recommended setting is 64Hz for most hosts, balancing smooth gameplay with reasonable bandwidth usage for cross-region play. 
 
 The DLL also attempts to recover clients that fall behind after lag spikes or packet loss. Lost packets can carry shots, reloads, kills and respawns, so the DLL attempts to recover them instead of discarding them. It also requests twice as many lost packets at once, and fixes a stock bug that could leave a client stuck behind the server with a frozen game world. This helps high ping players stay synchronized with the host for smoother gameplay.
 
-If NetworkFixes is off, the game exe already has a network patch built in, or uses another proxy DLL (such as Joint Operations TAC Mod with onHook), the DLL will ignore the SendRate and NetworkFixes settings. This is done to avoid conflicts with other network modifications.
-
 ### 5. Large PFF Archives
-The game cannot read a `.pff` archive larger than 2 GB. The DLL lets every supported game read archives up to 4 GB, the largest size the archive format can address. Every player and host who uses an archive larger than 2 GB needs this DLL.
+The stock game cannot read a `.pff` archive larger than 2 GB. The DLL lets every supported game read archives up to 4 GB, the largest size the archive format can address.
+
+### 6. More Game Memory (Heap / Fastmem)
+The game reserves one fixed block of memory at startup, which it calls Fastmem: 192 MB in the V1.7.5.7 games and 136 MB in the older ones. A mission that nearly fills this block fails to load with "Mission is too large". The DLL sets the block to 256 MB in every supported game, so heavy mods and large missions have room to spare.
+
+Tests with every mod, with various configurations and mission sizes, never went past the stock size, and only extreme cases came close. The DLL stops at 256 MB because the whole block comes out of the 2 GB of memory the game can use, and graphics, sound and mission objects need the rest. No test needed LAA (Large Address Aware).
+
+### 7. Larger Mission Support
+The stock game caps each mission at 256 organics (players and AI), 1,200 items, 1,200 decorations and 768 markers. After several months of hosting and sysdump analysis, the majority of my server crashes came from exceeding the organic limit. There are many missions that push the organic limit close to it's maximum and don't leave enough room for actual players to join. If a player joins a mission with no available player slots, they will crash the host simply by joining. The DLL solves the organic limit issue by raising it to 2,048 and places players first in the allocation, so player slots filled before AI slots. The item, decoration and marker limits are increased to 2,400 items, 2,400 decorations and 2,048 markers. 
+
+> **Note:** The increased mission limits are always on and cannot be disabled. Players need the updated DLL to join servers running missions that **exceed the stock limits**. However, missions that stay within the stock limits **will still work for all players, even for vanilla clients without the DLL.** The NovaHQ Lobby will show a message to clients attempting to join servers that exceed the stock limits if they do not have the updated DLL.
 
 ## How It Works
 
@@ -98,12 +106,6 @@ When enabled, multiple instances of the game can be run simultaneously. Useful f
 
 ### `AntiSysDump` *(default: 1)*
 Enables crash guards that prevent known game engine sysdumps. Protects against crashes caused by corrupt GImage pointers, invalid material pointers during map cycling, and other rendering issues.
-
-### `ReserveSlots` *(default: 1)*
-When enabled, the game reserves a slot for every player the server allows, and stops populating AI once only those slots are left, which may impact the mission's goals. It's recommended to adjust the map or reduce the max players your server allows. The game has 256 slots for people, and without this a mission whose AI leave no free slot crashes the host when a player joins. Works only with `AntiSysDump` enabled.
-
-### `AiDismemberment` *(default: 0)*
-When enabled, the mission's AI can lose a limb in multiplayer. When disabled, they never do, because a severed limb takes one of the game's 256 slots for people, and on a full server a dismembering kill crashes the host. Works only with `AntiSysDump` enabled.
 
 ### `CacheFix` *(default: 1)*
 Deletes the "cache" folder in the game directory on startup. The game uses this folder to store web lobby resources which can become stale and cause issues.
