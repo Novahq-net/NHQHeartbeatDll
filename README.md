@@ -9,6 +9,8 @@ Now, after many years and a lot of research, Novahq.net is finally able to provi
 
 > **Notice:** This project is intended for use with legitimately owned copies of the supported game(s) to enable continued online play through community-operated lobby servers. It is not intended to be used with illegally obtained copies of the game.
 
+> **Note:** For maximum compatibility, it's recommended to use this DLL with the **stock, unmodified exe** distributed with the game or mod.
+
 The proxy dll has been built and tested against the game versions and distributions listed below. Patched or cracked executables are not supported, and support for them will not be added. There are plenty of legitimate ways to obtain a retail or digital copy. 
 
 - **Joint Operations: Typhoon Rising** (V1.6.9.2, Retail CDROM, Compatible with Advanced Warfare 2)
